@@ -20,7 +20,7 @@ public function qry_exec($query,$db,$type,$config=array()){
 				$db -> simple_query($qry);
 			}
 			else{
-				$d -> $execute($qry);
+				$db -> $execute($qry);
 			}
 			$ind++;
 		}
