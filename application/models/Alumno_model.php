@@ -22,11 +22,12 @@ class Alumno_model extends Generic_model {
 														 {$data['edad']},
 														 {$this -> db -> escape($data['direccion'])},
 														 {$this -> db -> escape($data['ciudad'])}
-													   );"
+													 );";
+
 		$qry[count($qry)]="SET @id=SELECT last_insert_id();";
 		//genero el alumno vacio
 		$qry[count($qry)]="INSERT INTO alumno (@id,0,0,0,sysdate());";
-		
+
 		return $this -> qry_exec($qry,$this -> db,"simple",array("manage_exception" => TRUE));
 	}
 
