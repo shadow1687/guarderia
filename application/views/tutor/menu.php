@@ -23,8 +23,6 @@
                   <li><a><i class="fa fa-table"></i> Alumnos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?=base_url()?>alumno/Alumno/show_lista_alumnos">Listado</a></li>
-                      <li><a href="tables.html">Buscar</a></li>
-                      <li><a href="<?php base_url()?>alumno/Alumno/crear_alumno">Crear</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> Estadísticas <span class="fa fa-chevron-down"></span></a>

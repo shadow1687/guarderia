@@ -86,7 +86,10 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 
 //TIPOS DE PERSONAS
-define('PADRE',0);
-define('MADRE',1);
+define('TUTOR',0);
 define('ALUMNO',2);
 define('MAESTRO',3);
+
+//TIPOS DE RELACIONES
+define('REL_PADRE_HIJO',0);
+define('REL_ALUMNO_MAESTRA',3);

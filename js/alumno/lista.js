@@ -10,10 +10,10 @@ function bindEvents(source){
 
       break;
     default:
-      $("#user_settings").off().click(function(e){
+      $("#crear").off().click(function(e){
         e.preventDefault();
         e.stopPropagation();
-        window.location.href = _base_url+"/sist_riego/index.php/Main_controller/user_settings";
+        request("alumno/Alumno/crear_alumno");
       });
   }
 }
@@ -30,15 +30,19 @@ function initTable(){
           'dataSrc':"res"
         },
         "columns": [
+          { "data": "dni",'className':'text-right' },
             { "data": "",
               render: function ( data, type, row ) {
                   return row.apellido+", "+row.nombre;
                }
             },
-            { "data": "nombre" },
-            { "data": "nombre" },
-            { "data": "nombre" },
-            { "data": "nombre" },
+            { "data": "",'className':'text-center',
+              render: function ( data, type, row ) {
+                  return moment(row.nacimiento).format("DD/MM/YYYY");
+               }
+            },
+            { "data": "tutores" },
+            { "data": "maestros" },
         ]
     }
     $("#tbl_alumno").DataTable(data_table_object);

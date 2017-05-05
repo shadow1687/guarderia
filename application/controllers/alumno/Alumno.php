@@ -26,7 +26,7 @@ public function __construct()
     if(!$this->session->userdata('username'))
       redirect('login');
     $this->load->view('headerpanel');
-    $this->load->view('menu');
+    $this->load->view('alumno/menu');
     $this->load->view('alumno/crearalumno');
     $this -> default_vars();
   }
@@ -54,8 +54,9 @@ public function __construct()
     array_push($css,base_url()."css/jquery-ui.theme.min.css");
     //cargo scripts para dar funcionalidad comun
     array_push($js,base_url()."js/utils.js");
-    array_push($js,base_url()."js/jquery.mask.min.js");
-    array_push($js,base_url()."js/jquery-ui.min.js");
+    array_push($js,base_url()."js/utils/jquery.mask.min.js");
+    array_push($js,base_url()."js/utils/jquery-ui.min.js");
+    array_push($js,base_url()."js/utils/moment.min.js");
     $this -> load_variables(array_merge($js_array,$js),array_merge($css,$css_array));
   }
 
