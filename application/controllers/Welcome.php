@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once(dirname(__FILE__)."/Main_Controller.php");
 
-class Welcome extends CI_Controller {
+class Welcome extends Main_controller {
 
 	/**
 	 * Index Page for this controller.
@@ -28,18 +29,21 @@ class Welcome extends CI_Controller {
 		$data=array('tipo' => $_SESSION["tipo"]);
 		//cargo el menu dependiendo del tipo del usuario
 		switch($_SESSION["tipo"]){
-			case PADRE :
-			case MADRE :     {
-													$this -> load -> view('/tutor/menu',$data);
-													$this -> load -> view('/tutor/panel');
+			case TUTOR :    			{
+															$this -> load -> view('/tutor/menu',$data);
+															$this -> load -> view('/tutor/panel');
 			}break;
-			case MAESTRO :     {
-													$this -> load -> view('/maestro/menu');
-													$this -> load -> view('/maestro/panel');
+			case MAESTRO :     		{
+															$this -> load -> view('/maestro/menu');
+															$this -> load -> view('/maestro/panel');
 			}break;
-			default:    		 {
-													$this -> load -> view('menu');
-													$this -> load -> view('panel');
+			case ESTABLECIMIENTO :{
+															$this -> load -> view('/establecimiento/menu');
+															$this -> load -> view('/establecimiento/panel');
+			}break;
+			default:    		 			{
+															$this -> load -> view('menu');
+															$this -> load -> view('panel');
 			}break;
 		}
 

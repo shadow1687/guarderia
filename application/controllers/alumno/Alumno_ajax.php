@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once(dirname(__FILE__)."/../Main_Controller.php");
 
-class Alumno_ajax extends CI_Controller {
+class Alumno_ajax extends Main_controller {
 
 public function __construct()
 {
@@ -35,9 +36,5 @@ public function __construct()
     $res = $this -> Alumno_model -> obtenerAlumnos();
     echo json_encode(array("valid" => 1,"msg" => "","res" =>$res["result"]));
   }
-
-
-
-
 
 }

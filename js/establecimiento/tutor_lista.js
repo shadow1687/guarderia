@@ -5,21 +5,17 @@ $(function(){
 
 function bindEvents(source){
   switch (source) {
-    case 'user':
-
-
-      break;
     default:
       $("#crear").off().click(function(e){
         e.preventDefault();
         e.stopPropagation();
-        request("alumno/Alumno/crear_alumno");
+        request("tutor/Tutor/crear_tutor");
       });
   }
 }
 
 function initTable(){
-  var url='../../alumno/Alumno_ajax/get_alumnos';
+  var url='../../tutor/Tutor_ajax/get_tutores';
   data_table_object= {
         "ajax": {
           'url':url,
@@ -28,19 +24,24 @@ function initTable(){
           'dataSrc':"res"
         },
         "columns": [
-          { "data": "dni",'className':'text-right' },
+            { "data": "dni",'className':'text-right' },
             { "data": "",
               render: function ( data, type, row ) {
                   return row.apellido+", "+row.nombre;
                }
             },
-            { "data": "",'className':'text-center',
+            { "data": "",'className':'texts-center',
               render: function ( data, type, row ) {
                   return moment(row.nacimiento).format("DD/MM/YYYY");
                }
             },
-            { "data": "tutores" },
-            { "data": "maestros" },
+            { "data": "edad",'className':'text-right' },
+            { "data": "email",'className':'text-right' },
+            { "data": "",
+              render: function ( data, type, row ) {
+                  return row.direccion+((row.ciudad!="")? " ( "+row.ciudad+" )":"");
+               }
+            },
         ],
         "paging":   true,
         "ordering": [[2,'asc']],

@@ -32,18 +32,19 @@
                       <table id="tbl_alumno" aria-describedby="datatable_info" role="grid" id="datatable" class="table table-striped table-bordered dataTable no-footer">
                       <thead>
                         <tr role="row">
-                          <th class="text-center" aria-label="Position: activate to sort column ascending" style="width: 416px;" colspan="1" rowspan="1" aria-controls="datatable" tabindex="0" class="sorting">DNI</th>
-                          <th aria-label="Name: activate to sort column descending" aria-sort="ascending" style="width: 265px;" colspan="1" rowspan="1" aria-controls="datatable" tabindex="0" class="sorting_asc">Nombre</th>
-                          <th aria-label="Position: activate to sort column ascending" style="width: 416px;" colspan="1" rowspan="1" aria-controls="datatable" tabindex="0" class="sorting">Fecha Nacimiento</th>
-                          <th aria-label="Position: activate to sort column ascending" style="width: 416px;" colspan="1" rowspan="1" aria-controls="datatable" tabindex="0" class="sorting">Padre/Madre</th>
-                          <th aria-label="Office: activate to sort column ascending" style="width: 203px;" colspan="1" rowspan="1" aria-controls="datatable" tabindex="0" class="sorting">Maestra</th>
+                          <th>DNI</th>
+                          <th>Apelido y Nombre</th>
+                          <th>Fecha Nacimiento</th>
+                          <th>Edad</th>
+                          <th>e-mail</th>
+                          <th>Dirección</th>
                       </thead>
                       <tbody>
                       </tbody>
                     </table>
                   </div>
                   <center>
-                      <button class="btn btn-success" id="crear"><i class="fa fa-plus"></i> Agregar Alumno</button>
+                      <button class="btn btn-success" id="crear"><i class="fa fa-plus"></i> Agregar Tutor</button>
                   </center>
                 </div>
               </div>

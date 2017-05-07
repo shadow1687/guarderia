@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once(dirname(__FILE__)."/Main_Controller.php");
 
-class Establecimiento extends CI_Controller {
+class Establecimiento extends Main_controller {
 
 public function __construct()
 {
@@ -29,11 +30,11 @@ public function __construct()
       redirect('login');
 
       $data = array(
-			'nombre' => $this->input->post('nombre'),
-			'direccion' => $this->input->post('direccion'),
-      'email' => $this->input->post('email'),
-      'telefono' => $this->input->post('telefono'),
-      'ciudad' => $this->input->post('ciudad')
+			'nombre'      => $this->input->post('nombre'),
+			'direccion'   => $this->input->post('direccion'),
+      'email'       => $this->input->post('email'),
+      'telefono'    => $this->input->post('telefono'),
+      'ciudad'      => $this->input->post('ciudad')
 			);
 
 		$this->Establecimiento_model->crearEstablecimiento($data);

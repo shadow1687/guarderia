@@ -35,10 +35,14 @@
                       <li><a href="calendar.html">Calendar</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-table"></i> Alumnos <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-table"></i> Maestros <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="tables.html">Buscar</a></li>
-                      <li><a href="<?php base_url()?>Alumno">Crear</a></li>
+                      <li><a href="<?=base_url()?>maestro/Maestro/show_lista_maestros">Listado de Maestros</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-table"></i> Tutores <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?=base_url()?>tutor/Tutor/show_lista_tutores">Listado de Tutores</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> Estadísticas <span class="fa fa-chevron-down"></span></a>

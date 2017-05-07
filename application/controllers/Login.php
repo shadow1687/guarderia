@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once(dirname(__FILE__)."/Main_Controller.php"); 
 
-class Login extends CI_Controller {
+class Login extends Main_Controller {
 
 public function __construct()
 {

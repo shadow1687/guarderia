@@ -31,10 +31,10 @@ public function __construct()
 	}
 
 
-	function obtener_personas($tipo){
-    $this->db->where('tipo=='.$tipo);
-		$query = $this->db->get('persona');
-		if ($query->num_rows() >0 ) return $query;
+	 function obtener_personas($tipo){
+    $tipo_filter=(isset($tipo) && $tipo>=0) ? " AND tipo={$tipo} ":"";
+    $qry="SELECT * FROM persona WHERE 1 {$tipo_filter};";
+		return $this -> qry_exec($qry,$this -> db,"array",array("manage_exception" => TRUE));
 	}
 
 }
