@@ -7,7 +7,9 @@ class Alumno_ajax extends Main_controller {
 public function __construct()
 {
   parent::__construct();
+  $this->load->model('Persona_model');
   $this->load->model('Alumno_model');
+  //$this->load->library('form_validation');
 }
 
   public function crear()
@@ -26,11 +28,45 @@ public function __construct()
       'ciudad' => $this->input->post('ciudad')
 			);
 
-		$this->Alumno_model->crearAlumno($data);
 
-    redirect('welcome');
+      if ($this->validar($data))
+       {
+      		$this->Alumno_model->crearAlumno($data);
+          redirect('welcome');
+        }
+      else {
+            $this->load->view('headerpanel');
+            $this->load->view('alumno/menu');
+            $this->load->view('alumno/crearalumno');
+          }
+
+		//$this->Alumno_model->crearAlumno($data);
+
+    //redirect('welcome');
 		//echo 'Consulta enviada con exito';
   }
+
+
+    public function validar($data)
+    {
+      $this->form_validation->set_rules('nombre', 'Nombre', 'required|max_length[50]');
+      $this->form_validation->set_rules('apellido', 'Apellido', 'required|max_length[50]');
+      $this->form_validation->set_rules('dni', 'DNI', 'required|max_length[10]');
+      $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+      $this->form_validation->set_rules('nacimiento', 'Fecha de nacimiento', 'required');
+      $this->form_validation->set_rules('edad', 'Edad', 'required|is_natural_no_zero|less_than[100]');
+      $this->form_validation->set_rules('direccion', 'Dirección', 'required');
+      $this->form_validation->set_rules('ciudad', 'Ciudad', 'required');
+
+      if ($this->form_validation->run() === FALSE)
+      {
+          return false;
+      }
+      else {
+        return true;
+      }
+    }
+
 
   public function get_alumnos(){
     $res = $this -> Alumno_model -> obtenerAlumnos();

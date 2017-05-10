@@ -13,7 +13,7 @@
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-
+                  <?php echo validation_errors();?>
                   <form class="form-horizontal form-label-left" action='../Alumno_ajax/crear' method='POST' novalidate>
 
                     <span class="section">Información personal</span>
@@ -22,7 +22,7 @@
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="nombre" class="form-control col-md-7 col-xs-12" data-validate-length-range="20" name="nombre" placeholder="" required="required" type="text">
+                        <input id="nombre" class="form-control col-md-7 col-xs-12" data-validate-length-range="20" name="nombre" placeholder=""  type="text">
                       </div>
                     </div>
                     <div class="item form-group">
