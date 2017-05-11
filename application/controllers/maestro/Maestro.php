@@ -59,6 +59,15 @@ public function __construct()
     $this -> default_vars($js_to_load,$css_to_load);
   }
 
+  public function contacto()
+  {
+    if(!$this->session->userdata('username'))
+      redirect('login');
 
+    $this->load->view('headerpanel');
+    $this->load->view('maestro/menu');
+    $this->load->view('contacto');
+    
+  }
 
 }

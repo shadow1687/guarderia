@@ -68,8 +68,8 @@
               <div class="menu_section">
                 <h3>Extras</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i> Contacto <span class="fa fa-chevron-down"></span></a>
-                    
+                  <li><a href="<?=base_url()?>Establecimiento/contacto"><i class="fa fa-bug"></i> Contacto <span class="fa fa-chevron-down"></span></a>
+
                   </li>
                   <li><a><i class="fa fa-windows"></i> Opciones <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
