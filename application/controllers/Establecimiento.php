@@ -45,6 +45,17 @@ public function __construct()
 
   }
 
+  public function contacto()
+  {
+    if(!$this->session->userdata('username'))
+      redirect('login');
+
+    $this->load->view('headerpanel');
+    $this->load->view('establecimiento/menu');
+    $this->load->view('contacto');
+    //$this->load->view('footer');
+  }
+
 
 
 

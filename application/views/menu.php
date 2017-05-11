@@ -69,13 +69,7 @@
                 <h3>Extras</h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-bug"></i> Contacto <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="e_commerce.html">E-commerce</a></li>
-                      <li><a href="projects.html">Projects</a></li>
-                      <li><a href="project_detail.html">Project Detail</a></li>
-                      <li><a href="contacts.html">Contacts</a></li>
-                      <li><a href="profile.html">Profile</a></li>
-                    </ul>
+                    
                   </li>
                   <li><a><i class="fa fa-windows"></i> Opciones <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
