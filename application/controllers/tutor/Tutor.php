@@ -24,28 +24,15 @@ public function __construct()
 
 	}
 
+    public function crear_tutor(){
+      if(!$this->session->userdata('username'))
+        redirect('login');
+      $this->load->view('headerpanel');
+      $this->load->view('tutor/menu');
+      $this->load->view('tutor/creartutor');
+      $this -> default_vars();
+    }
 
-  public function crear()
-  {
-    if(!$this->session->userdata('username'))
-      redirect('login');
-
-      $data = array(
-			'nombre'        => $this->input->post('nombre'),
-			'apellido'      => $this->input->post('apellido'),
-			'dni'           => $this->input->post('dni'),
-      'email'         => $this->input->post('email'),
-      'nacimiento'    => $this->input->post('nacimiento'),
-			'edad'          => $this->input->post('edad'),
-      'direccion'     => $this->input->post('direccion'),
-      'ciudad'        => $this->input->post('ciudad')
-			);
-
-		$this->Persona_model->crear_persona(TUTOR, $data);
-
-    redirect('welcome');
-
-  }
 
   public function ver_perfil()
   {
@@ -81,7 +68,7 @@ public function __construct()
     $this->load->view('headerpanel');
     $this->load->view('tutor/menu');
     $this->load->view('contacto');
-    
+
   }
 
 }

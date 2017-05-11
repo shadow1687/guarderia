@@ -9,7 +9,7 @@ function bindEvents(source){
       $("#crear").off().click(function(e){
         e.preventDefault();
         e.stopPropagation();
-        request("tutor/Tutor/crear");
+        request("tutor/Tutor/crear_tutor");
       });
   }
 }

@@ -24,26 +24,15 @@ public function __construct()
 	}
 
 
-  public function crear()
-  {
-    if(!$this->session->userdata('username'))
-      redirect('login');
+    public function crear_maestro(){
+      if(!$this->session->userdata('username'))
+        redirect('login');
+      $this->load->view('headerpanel');
+      $this->load->view('maestro/menu');
+      $this->load->view('maestro/crearmaestro');
+      $this -> default_vars();
+    }
 
-      $data = array(
-			'nombre'        => $this->input->post('nombre'),
-			'apellido'      => $this->input->post('apellido'),
-			'dni'           => $this->input->post('dni'),
-      'email'         => $this->input->post('email'),
-      'nacimiento'    => $this->input->post('nacimiento'),
-			'edad'          => $this->input->post('edad'),
-      'direccion'     => $this->input->post('direccion'),
-      'ciudad'        => $this->input->post('ciudad')
-			);
-
-		$this->Persona_model->crear_persona(MAESTRO, $data);
-
-    redirect('welcome');
-  }
 
   public function show_lista_maestros(){
     $this->load->view('headerpanel');
@@ -67,7 +56,7 @@ public function __construct()
     $this->load->view('headerpanel');
     $this->load->view('maestro/menu');
     $this->load->view('contacto');
-    
+
   }
 
 }

@@ -9,7 +9,7 @@ function bindEvents(source){
       $("#crear").off().click(function(e){
         e.preventDefault();
         e.stopPropagation();
-        request("maestro/Maestro/crear");
+        request("maestro/Maestro/crear_maestro");
       });
   }
 }
