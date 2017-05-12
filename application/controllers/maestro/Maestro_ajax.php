@@ -26,10 +26,41 @@ public function __construct()
       'ciudad'        => $this->input->post('ciudad')
 			);
 
-		$this->Persona_model->crearPersona(MAESTRO,$data);
+      if ($this->validar($data))
+       {
+          $this->Persona_model->crear_persona(MAESTRO,$data);
+          redirect('welcome');
+        }
+      else {
+            $this->load->view('headerpanel');
+            $this->load->view('maestro/menu');
+            $this->load->view('maestro/crearmaestro');
+          }
 
-    redirect('welcome');
+    //$this->Persona_model->crear_persona(MAESTRO,$data);
+
+    //redirect('welcome');
 		//echo 'Consulta enviada con exito';
+  }
+
+  public function validar($data)
+  {
+    $this->form_validation->set_rules('nombre', 'Nombre', 'required|max_length[50]');
+    $this->form_validation->set_rules('apellido', 'Apellido', 'required|max_length[50]');
+    $this->form_validation->set_rules('dni', 'DNI', 'required|max_length[10]');
+    $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+    $this->form_validation->set_rules('nacimiento', 'Fecha de nacimiento', 'required');
+    $this->form_validation->set_rules('edad', 'Edad', 'required|is_natural_no_zero|less_than[100]');
+    $this->form_validation->set_rules('direccion', 'Dirección', 'required');
+    $this->form_validation->set_rules('ciudad', 'Ciudad', 'required');
+
+    if ($this->form_validation->run() === FALSE)
+    {
+        return false;
+    }
+    else {
+      return true;
+    }
   }
 
   public function get_maestros(){

@@ -14,7 +14,7 @@
                 </div>
                 <div class="x_content">
 
-                  <form class="form-horizontal form-label-left" action='Maestro/crear' method='POST' novalidate>
+                  <form class="form-horizontal form-label-left" action='../Maestro_ajax/crear' method='POST' novalidate>
 
                     <span class="section">Información personal</span>
 

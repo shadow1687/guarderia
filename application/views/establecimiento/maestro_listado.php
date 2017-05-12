@@ -1,7 +1,7 @@
 <div class="right_col">
             <div class="page-title">
               <div class="title_left">
-                <h3>Alumnos <small>Listado completo de alumnos</small></h3>
+                <h3>Maestros <small>Listado completo de maestros</small></h3>
               </div>
 
             <div class="clearfix"></div>
