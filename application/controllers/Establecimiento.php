@@ -16,11 +16,7 @@ public function __construct()
     if(!$this->session->userdata('username'))
       redirect('login');
 
-    $this->load->view('headerpanel');
-    $this->load->view('establecimiento/menu');
     $this->load->view('establecimiento/crearestablecimiento');
-    //$this->load->view('footer');
-
 	}
 
 
@@ -38,22 +34,14 @@ public function __construct()
 			);
 
 		$this->Establecimiento_model->crearEstablecimiento($data);
-
     redirect('welcome');
-		//echo 'Consulta enviada con exito';
-
-
   }
 
   public function contacto()
   {
     if(!$this->session->userdata('username'))
       redirect('login');
-
-    $this->load->view('headerpanel');
-    $this->load->view('establecimiento/menu');
     $this->load->view('contacto');
-    //$this->load->view('footer');
   }
 
 
