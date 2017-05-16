@@ -1,0 +1,8 @@
+/* ESTILOS COMUNES */
+.odd.tr_selected {
+  background-color: #a0ede2 !important;
+}
+
+.even.tr_selected {
+  background-color: #d3f7f2 !important;
+}

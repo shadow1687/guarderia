@@ -48,6 +48,7 @@ class Main_Controller extends CI_Controller {
     array_push($css,base_url()."css/jquery-ui.min.css");
     array_push($css,base_url()."css/jquery-ui.structure.min.css");
     array_push($css,base_url()."css/jquery-ui.theme.min.css");
+    array_push($css,base_url()."css/main.css");
     //cargo scripts para dar funcionalidad comun
     array_push($js,base_url()."js/utils.js");
     array_push($js,base_url()."js/utils/jquery.mask.min.js");
