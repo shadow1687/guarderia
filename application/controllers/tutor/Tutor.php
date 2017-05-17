@@ -11,27 +11,14 @@ public function __construct()
 }
 
 
-
-	public function index()
-	{
+  public function crear_tutor(){
     if(!$this->session->userdata('username'))
       redirect('login');
-
-    $this->load->view('headerpanel');
-    $this->load->view('tutor/menu');
+    parent::header();
     $this->load->view('tutor/creartutor');
-    //$this->load->view('footer');
-
-	}
-
-    public function crear_tutor(){
-      if(!$this->session->userdata('username'))
-        redirect('login');
-      $this->load->view('headerpanel');
-      $this->load->view('tutor/menu');
-      $this->load->view('tutor/creartutor');
-      $this -> default_vars();
-    }
+    parent::footer();
+    $this -> default_vars();
+  }
 
 
   public function ver_perfil()
@@ -39,17 +26,14 @@ public function __construct()
     if(!$this->session->userdata('username'))
       redirect('login');
 
-    $this->load->view('headerpanel');
-    $this->load->view('tutor/menu');
     $this->load->view('tutor/perfil');
-    //$this->load->view('footer');
 
   }
+
   public function show_lista_tutores(){
-    $this->load->view('headerpanel');
-    $this -> load -> view('establecimiento/menu');
+    parent::header();
     $this -> load -> view("establecimiento/tutor_listado");
-    $this->load->view('footer');
+    parent::footer();
 
     $js_to_load=array();
     array_push($js_to_load,base_url()."/../js/establecimiento/tutor_lista.js");
@@ -64,10 +48,9 @@ public function __construct()
   {
     if(!$this->session->userdata('username'))
       redirect('login');
-
-    $this->load->view('headerpanel');
-    $this->load->view('tutor/menu');
+    parent::header();
     $this->load->view('contacto');
+    parent::footer();
 
   }
 

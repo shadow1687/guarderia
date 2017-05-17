@@ -10,33 +10,19 @@ public function __construct()
   $this->load->model('Alumno_model');
 }
 
-
-
-	public function index()
-	{
-    if(!$this->session->userdata('username'))
-      redirect('login');
-    $this->load->view('headerpanel');
-    $this->load->view('menu');
-    $this->load->view('footer');
-    $this -> default_vars();
-
-	}
-
   public function crear_alumno(){
     if(!$this->session->userdata('username'))
       redirect('login');
-    $this->load->view('headerpanel');
-    $this->load->view('alumno/menu');
+    parent::header();
     $this->load->view('alumno/crearalumno');
+    parent::footer();
     $this -> default_vars();
   }
 
   public function show_lista_alumnos(){
-    $this->load->view('headerpanel');
-    $this -> load -> view('alumno/menu');
+    parent::header();
     $this -> load -> view("alumno/listado");
-    $this->load->view('footer');
+    parent::footer();
 
     $js_to_load=array();
     array_push($js_to_load,base_url()."/../js/alumno/lista.js");
@@ -52,9 +38,9 @@ public function __construct()
     if(!$this->session->userdata('username'))
       redirect('login');
 
-    $this->load->view('headerpanel');
-    $this->load->view('alumno/menu');
+    parent::header();
     $this->load->view('contacto');
-    
+    parent::footer();
+
   }
 }
