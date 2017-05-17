@@ -5,11 +5,10 @@
               <div class="menu_section">
                 <h3>Establecimiento</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Novedades <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-home"></i> Eventos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">Dashboard</a></li>
-                      <li><a href="index2.html">Dashboard2</a></li>
-                      <li><a href="index3.html">Dashboard3</a></li>
+                      <li><a href="#">Registrar eventos</a></li>
+
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Circulares <span class="fa fa-chevron-down"></span></a>

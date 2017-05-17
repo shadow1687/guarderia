@@ -8,6 +8,7 @@ public function __construct()
 {
   parent::__construct();
   $this->load->model('Persona_model');
+  $this->load->model('Evento_model');
 }
 
   public function crear()
@@ -66,6 +67,53 @@ public function __construct()
   public function get_maestros(){
     $res = $this -> Persona_model -> obtener_personas(MAESTRO);
     echo json_encode(array("valid" => 1,"msg" => "","res" =>$res["result"]));
+  }
+
+
+  public function registrar_evento()
+  {
+    if(!$this->session->userdata('username'))
+      redirect('login');
+
+      $data = array(
+      'alumnos'        => $this->input->post('alumnos[]'),
+      'evento'      => $this->input->post('evento'),
+      );
+
+      $dtz = new DateTimeZone("America/Argentina/Buenos_Aires"); //Your timezone
+      $now = new DateTime(date("Y-m-d H:i:s"), $dtz);
+
+      $alumnos= $data['alumnos'];
+
+      foreach ($alumnos as $alumno)
+      {
+          $evento= array(
+            'fecha_hora'  =>  $now->format("Y-m-d H:i:s"),
+            'tipo'        =>  $data['evento'],
+            'alumno'      =>  $alumno,
+            'descripcion' =>  COMER,
+          );
+          $this->Evento_model->ingresar_evento($evento);
+      }
+
+      redirect('welcome');
+
+
+      /*if ($this->validar($data))
+       {
+          $this->Persona_model->crear_persona(MAESTRO,$data);
+          redirect('welcome');
+        }
+      else {
+            $this->load->view('headerpanel');
+            $this->load->view('maestro/menu');
+            $this->load->view('maestro/crearmaestro');
+          }
+*/
+    //$this->Persona_model->crear_persona(MAESTRO,$data);
+
+    //redirect('welcome');
+    //echo 'Consulta enviada con exito';
   }
 
 }

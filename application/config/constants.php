@@ -94,3 +94,10 @@ define('ESTABLECIMIENTO',3);
 //TIPOS DE RELACIONES
 define('REL_PADRE_HIJO',0);
 define('REL_ALUMNO_MAESTRA',3);
+
+//DESCRIPCION DE EVENTOS
+define('COMER', 'Comió normalmente');
+define('DORMIR', 'Durmió bien');
+define('LLEGAR', 'Llegó a la guarderia');
+define('JUGAR', 'Jugó un largo rato');
+define('RETIRARSE', 'Se retiró de la guarderia');

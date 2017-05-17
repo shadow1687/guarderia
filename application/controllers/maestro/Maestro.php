@@ -59,4 +59,16 @@ public function __construct()
 
   }
 
+
+  public function registrar_evento()
+  {
+    if(!$this->session->userdata('username'))
+      redirect('login');
+
+    $this->load->view('headerpanel');
+    $this->load->view('maestro/menu');
+    $this->load->view('maestro/registrar_evento');
+
+  }
+
 }
