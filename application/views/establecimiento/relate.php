@@ -59,7 +59,6 @@
                               <table id="tbl_alumno" aria-describedby="datatable_info" role="grid" id="datatable" class="table table-striped table-bordered dataTable no-footer">
                               <thead>
                                 <tr role="row">
-                                  <th>DNI</th>
                                   <th>Apelido y Nombre</th>
                                   <th>Edad</th>
                               </thead>
@@ -69,12 +68,30 @@
                         </div>
                       </div>
                       <div id="step-2">
-                        <h2 class="StepTitle">Step 2 Content</h2>
-
+                        <div style="min-height:400px">
+                              <table id="tbl_maestro" aria-describedby="datatable_info" role="grid" id="datatable" class="table table-striped table-bordered dataTable no-footer">
+                              <thead>
+                                <tr role="row">
+                                  <th>Maestr@s</th>
+                              </thead>
+                              <tbody>
+                              </tbody>
+                            </table>
+                        </div>
                       </div>
                       <div id="step-3">
-                        <h2 class="StepTitle">Step 3 Content</h2>
-
+                        <div style="min-height:400px">
+                              <table id="tbl_aula" aria-describedby="datatable_info" role="grid" id="datatable" class="table table-striped table-bordered dataTable no-footer">
+                              <thead>
+                                <tr role="row">
+                                  <th>Aula</th>
+                                  <th>Turno</th>
+                                  <th>Lugares</th>
+                              </thead>
+                              <tbody>
+                              </tbody>
+                            </table>
+                        </div>
                       </div>
                     </div>
                     <!-- End SmartWizard Content -->

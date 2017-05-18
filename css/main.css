@@ -11,3 +11,11 @@
 .even.tr_selected {
   background-color: #cce8e4 !important;
 }
+
+.txt_nowrap{
+  white-space: nowrap;
+}
+
+.hand{
+  cursor:pointer;
+}
