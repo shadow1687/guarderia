@@ -21,6 +21,23 @@ class Establecimiento_model extends Generic_model {
 		if ($query->num_rows() >0 ) return $query;
 	}
 
+	function get_aulas($maestro){
+		if($maestro){
+			$qry="SELECT a.id,
+									 IF(0,'MAÑANA','TARDE') turno,
+			 						 a.nombre,
+									 (a.capacidad - (SELECT count(*) FROM alumno WHERE id_aula=a.id AND id_maestro=am.id_maestro)) capacidad
+						FROM aula a
+						LEFT JOIN aula_maestro am ON (a.id=am.id_aula)
+						WHERE am.id_maestro=(SELECT id FROM persona WHERE tipo=".MAESTRO." AND dni={$maestro});";
+		}
+		else{
+			$qry="SELECT a.*
+						FROM aula a;";
+		}
+		return $this -> qry_exec($qry,$this -> db,"array",array("manage_exception" => TRUE));
+	}
+
 
 }
 

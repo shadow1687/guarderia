@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-require_once(dirname(__FILE__)."/Main_Controller.php");
+require_once(dirname(__FILE__)."/../Main_Controller.php");
 
 class Establecimiento extends Main_controller {
 
@@ -19,23 +19,6 @@ public function __construct()
     $this->load->view('establecimiento/crearestablecimiento');
     parent::footer();
 	}
-
-  public function crear()
-  {
-    if(!$this->session->userdata('username'))
-      redirect('login');
-
-      $data = array(
-			'nombre'      => $this->input->post('nombre'),
-			'direccion'   => $this->input->post('direccion'),
-      'email'       => $this->input->post('email'),
-      'telefono'    => $this->input->post('telefono'),
-      'ciudad'      => $this->input->post('ciudad')
-			);
-
-		$this->Establecimiento_model->crearEstablecimiento($data);
-    redirect('welcome');
-  }
 
   public function asignar_alumnos(){
     if(!$this->session->userdata('username'))

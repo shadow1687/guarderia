@@ -49,6 +49,32 @@ function bindEvents(source){
 }
 
 function initWizard(){
+  $('#relate_wizard').smartWizard({
+    // Properties
+      onLeaveStep:function(obj,context){
+        if(context.toStep==3){
+          var maestro=get_selected("tbl_maestro");
+          if(maestro.length){
+            reloadTable("tbl_aula",initTableAulas,maestro[0]);
+            return true;
+          }
+          else{
+            alert("debe seleccionar un maestro");
+            return false;
+          }
+        }
+        else{
+          return true;
+        }
+      }
+      // onShowStep: function(obj,context){
+      //   if(context.fromStep==2){
+      //     //busco las aulas del maestro seleccionado
+      //     var maestro=get_selected("tbl_maestro");
+      //     reloadTable("tbl_aula",initTableAulas,maestro[0]);
+      //   }
+      // },
+  });
   initTableAlumnos();
   initTableMaestros();
 }
@@ -69,7 +95,7 @@ function initTableAlumnos(){
                     return row.apellido+", "+row.nombre;
                  }
               },
-              { "data": "",'className':'text-center txt_nowrap',
+              { "data": "",'className':'text-center text_nowrap',
                 render: function ( data, type, row ) {
                     return moment(row.nacimiento).format("DD/MM/YYYY");
                  }
@@ -96,20 +122,21 @@ function initTableMaestros(){
             'data':{  },
             "type": "POST",
             'dataSrc':"res",
-            "rowId":'dni',
           },
           "columns": [
-              { "data": "","className":"txt_nowrap",
+              { "data": "","className":"text_nowrap",
                 render: function ( data, type, row ) {
                     return row.apellido+", "+row.nombre;
                  }
               },
           ],
-          "paging":   true,
+          "paging":   false,
           "ordering": [[2,'asc']],
-          "bFilter":true,
+          "filter":false,
+          "info": false,
           "rowCallback": function( row, data, index ) {
             $(row).addClass("hand");
+            $(row).attr("id",data.dni);
           },
           "initComplete": function( settings ) {
              bindEvents("tbl_maestro");
@@ -118,11 +145,41 @@ function initTableMaestros(){
       $("#tbl_maestro").DataTable(data_table_object);
 }
 
+function initTableAulas(maestro){
+    var url=_base_url+'/guarderia/establecimiento/Establecimiento_ajax/get_aulas';
+    data_table_object= {
+          "ajax": {
+            'url':url,
+            'data':{ "maestro": maestro },
+            "type": "POST",
+            'dataSrc':"res",
+            "rowId":'id',
+          },
+          "columns": [
+              { "data": "nombre",'className':'text-center text_nowrap'},
+              { "data": "turno",'className':'text-center text_nowrap'},
+              { "data": "capacidad",'className':'text-right text_nowrap'},
+          ],
+          "paging":   false,
+          "ordering": [[2,'asc']],
+          "filter":false,
+          "info": false,
+          "rowCallback": function( row, data, index ) {
+            $(row).addClass("hand");
+          },
+          "initComplete": function( settings ) {
+             bindEvents("tbl_aula");
+         }
+      }
+      $("#tbl_aula").DataTable(data_table_object);
+}
+
 function get_selected(id_table){
   var array=[];
   $("#"+id_table+" tbody").find(".tr_selected").each(function(){
-     var row=this;
-     array.push(row.attr("id"));
+     var row=$(this);
+     var id=$(row).attr("id")
+     array.push(id);
    });
   return array;
 }

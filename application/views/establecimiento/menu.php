@@ -37,7 +37,7 @@
                   <li><a><i class="fa fa-table"></i> Alumnos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?=base_url()?>alumno/Alumno/show_lista_alumnos">Listado de Alumnos</a></li>
-                      <li><a href="<?=base_url()?>Establecimiento/asignar_alumnos">Asignar Alumnos</a></li>
+                      <li><a href="<?=base_url()?>establecimiento/Establecimiento/asignar_alumnos">Asignar Alumnos</a></li>
                     </ul>
                   </li>
 
@@ -66,7 +66,7 @@
               <div class="menu_section">
                 <h3>Extras</h3>
                 <ul class="nav side-menu">
-                  <li><a href="<?=base_url()?>Establecimiento/contacto"><i class="fa fa-phone"></i> Contacto</a>
+                  <li><a href="<?=base_url()?>establecimiento/Establecimiento/contacto"><i class="fa fa-phone"></i> Contacto</a>
 
                   </li>
                   <li><a><i class="fa fa-windows"></i> Opciones <span class="fa fa-chevron-down"></span></a>

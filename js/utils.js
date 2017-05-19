@@ -32,6 +32,11 @@ function request(url,type,args){
   $(form).submit();
 }
 
+function reloadTable(id,callback,args){
+  $("#"+id).DataTable().clear();
+  $("#"+id).DataTable().destroy();
+  callback(args);
+}
 
 // $.ajax({
 //             type: "POST",

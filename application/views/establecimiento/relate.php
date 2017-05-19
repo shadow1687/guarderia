@@ -24,7 +24,7 @@
                   <div class="x_content">
                     <!-- Smart Wizard -->
                     <p>This is a basic form wizard example that inherits the colors from the selected scheme.</p>
-                    <div id="wizard" class="form_wizard wizard_horizontal">
+                    <div id="relate_wizard" class="form_wizard wizard_horizontal">
                       <ul class="wizard_steps">
                         <li>
                           <a href="#step-1">
@@ -68,30 +68,34 @@
                         </div>
                       </div>
                       <div id="step-2">
-                        <div style="min-height:400px">
-                              <table id="tbl_maestro" aria-describedby="datatable_info" role="grid" id="datatable" class="table table-striped table-bordered dataTable no-footer">
-                              <thead>
-                                <tr role="row">
-                                  <th>Maestr@s</th>
-                              </thead>
-                              <tbody>
-                              </tbody>
-                            </table>
-                        </div>
+                        <center>
+                          <div style="min-height:400px">
+                                <table id="tbl_maestro" aria-describedby="datatable_info" role="grid" id="datatable" class="table table-striped table-bordered dataTable no-footer">
+                                <thead>
+                                  <tr role="row">
+                                    <th>Maestr@s</th>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                              </table>
+                          </div>
+                        </center>
                       </div>
                       <div id="step-3">
-                        <div style="min-height:400px">
-                              <table id="tbl_aula" aria-describedby="datatable_info" role="grid" id="datatable" class="table table-striped table-bordered dataTable no-footer">
-                              <thead>
-                                <tr role="row">
-                                  <th>Aula</th>
-                                  <th>Turno</th>
-                                  <th>Lugares</th>
-                              </thead>
-                              <tbody>
-                              </tbody>
-                            </table>
-                        </div>
+                        <center>
+                          <div style="min-height:400px">
+                                <table id="tbl_aula" aria-describedby="datatable_info" role="grid" id="datatable" class="table table-striped table-bordered dataTable no-footer">
+                                <thead>
+                                  <tr role="row">
+                                    <th>Aula</th>
+                                    <th>Turno</th>
+                                    <th>Lugares</th>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                              </table>
+                          </div>
+                        </center>
                       </div>
                     </div>
                     <!-- End SmartWizard Content -->
