@@ -40,7 +40,7 @@
                             <span class="step_no">2</span>
                             <span class="step_descr">
                                               Paso 2<br />
-                                              <small>Listado de Aulas</small>
+                                              <small>Listado de Maestras</small>
                                           </span>
                           </a>
                         </li>
@@ -49,7 +49,7 @@
                             <span class="step_no">3</span>
                             <span class="step_descr">
                                               Paso 3<br />
-                                              <small>Listado de Maestras</small>
+                                              <small>Listado de Aulas</small>
                                           </span>
                           </a>
                         </li>
@@ -94,6 +94,9 @@
                                 <tbody>
                                 </tbody>
                               </table>
+                              <center>
+                                  <button class="btn btn-success" id="save">Confirmar</button>
+                              </center>
                           </div>
                         </center>
                       </div>

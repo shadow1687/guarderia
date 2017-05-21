@@ -10,21 +10,21 @@ class Establecimiento_model extends Generic_model {
 
 	}
 
-	function crearEstablecimiento($data){
+	public function crearEstablecimiento($data){
     $this->db->insert('establecimiento', array('nombre'=>$data['nombre'], 'direccion'=>$data['direccion'], 'email'=>$data['email'],
     'telefono'=>$data['telefono'], 'ciudad'=>$data['ciudad']));
 	}
 
 
-	function obtenerEstablecimientos(){
+	public function obtenerEstablecimientos(){
 		$query = $this->db->get('establecimiento');
 		if ($query->num_rows() >0 ) return $query;
 	}
 
-	function get_aulas($maestro){
+	public function get_aulas($maestro){
 		if($maestro){
 			$qry="SELECT a.id,
-									 IF(0,'MAÑANA','TARDE') turno,
+									 IF(am.st=0,'MAÑANA','TARDE') turno,
 			 						 a.nombre,
 									 (a.capacidad - (SELECT count(*) FROM alumno WHERE id_aula=a.id AND id_maestro=am.id_maestro)) capacidad
 						FROM aula a
@@ -36,6 +36,10 @@ class Establecimiento_model extends Generic_model {
 						FROM aula a;";
 		}
 		return $this -> qry_exec($qry,$this -> db,"array",array("manage_exception" => TRUE));
+	}
+
+	public function asignar_alumnos($alumnos,$maestro,$aulas){
+var_dump($alumnos,$maestro,$aula);exit;
 	}
 
 

@@ -1,6 +1,6 @@
 _MSG_INFO='#59c2cc';
-_MSG_WARNING='#f0da4c';
-_MSG_ERROR='#dd3d3d';
+_MSG_WARNING='#ec971f';
+_MSG_ERROR='#d9534f';
 
 
 

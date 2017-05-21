@@ -1,7 +1,10 @@
+relate_object={'alumnos':[],'maestro':'','aulas':[]};
+
 $(function(){
   initWizard();
   bindEvents();
 });
+
 
 function bindEvents(source){
   switch (source) {
@@ -39,11 +42,35 @@ function bindEvents(source){
 
       } );
     };break;
+    case 'tbl_aula':{
+      var table = $('#tbl_aula').DataTable();
+
+      $('#tbl_aula tbody').on('click', 'td', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var data = table.row( this ).data();
+        var row= $(this).parent();
+        var h=$(row).hasClass("tr_selected");
+        if($(row).hasClass("tr_selected")){
+          $(row).removeClass("tr_selected");
+        }
+        else{
+          $(row).addClass("tr_selected");
+        }
+
+      } );
+    };break;
     default:
       $("#crear").off().click(function(e){
         e.preventDefault();
         e.stopPropagation();
         request("maestro/Maestro/crear_maestro");
+      });
+      $("#save").off().click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        relate_object.aulas=get_selected("tbl_aula");
+        saveAsignacion();
       });
   }
 }
@@ -51,11 +78,17 @@ function bindEvents(source){
 function initWizard(){
   $('#relate_wizard').smartWizard({
     // Properties
+      labelNext:'Siguiente',
+      labelPrevious:'Volver',
+      labelFinish:'',
+      enableFinishButton:false,
+      transitionEffect: 'slide',
       onLeaveStep:function(obj,context){
         switch (context.toStep) {
           case 2:{
             var alumnos=get_selected("tbl_alumno");
             if(alumnos.length){
+              relate_object.alumnos=alumnos;
               return true;
             }
             else{
@@ -66,6 +99,7 @@ function initWizard(){
           case 3:{
             var maestro=get_selected("tbl_maestro");
             if(maestro.length){
+              relate_object.maestro=maestro[0];
               reloadTable("tbl_aula",initTableAulas,maestro[0]);
               return true;
             }
@@ -85,6 +119,8 @@ function initWizard(){
         }
       }
   });
+  $('.buttonNext').addClass('btn btn-info');
+  $('.buttonPrevious').addClass('btn btn-primary');
   initTableAlumnos();
   initTableMaestros();
 }
@@ -97,7 +133,6 @@ function initTableAlumnos(){
             'data':{  },
             "type": "POST",
             'dataSrc':"res",
-            "rowId":'dni',
           },
           "columns": [
               { "data": "",
@@ -116,6 +151,7 @@ function initTableAlumnos(){
           "bFilter":true,
           "rowCallback": function( row, data, index ) {
             $(row).addClass("hand");
+            $(row).attr("id",data.dni);
           },
           "initComplete": function( settings ) {
              bindEvents("tbl_alumno");
@@ -163,7 +199,6 @@ function initTableAulas(maestro){
             'data':{ "maestro": maestro },
             "type": "POST",
             'dataSrc':"res",
-            "rowId":'id',
           },
           "columns": [
               { "data": "nombre",'className':'text-center text_nowrap'},
@@ -176,12 +211,31 @@ function initTableAulas(maestro){
           "info": false,
           "rowCallback": function( row, data, index ) {
             $(row).addClass("hand");
+            $(row).attr("id",data.id);
           },
           "initComplete": function( settings ) {
              bindEvents("tbl_aula");
          }
       }
       $("#tbl_aula").DataTable(data_table_object);
+}
+
+
+function saveAsignacion(){
+    $.ajax({
+                type: "POST",
+                url: _base_url + "/guarderia/establecimiento/Establecimiento_ajax/asignar_alumnos",
+                data: JSON.stringify({
+                    "alumnos": relate_object.alumnos,
+                    "maestro": relate_object.maestro,
+                    "aulas"  : relate_object.aula
+                }),
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(res) {
+                  setMessage("success",_MSG_INFO);
+                }
+            });
 }
 
 function get_selected(id_table){

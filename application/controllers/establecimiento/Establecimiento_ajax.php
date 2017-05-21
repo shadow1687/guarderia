@@ -35,4 +35,11 @@ public function __construct()
     echo json_encode(array("valid" => 1,"msg" => "","res" =>$res["result"]));
   }
 
+  public function asignar_alumnos(){
+    extract($this -> input -> post());
+    var_dump($alumnos,$maestro,$aula);exit;
+    $res = $this -> Establecimiento_model -> asignar_alumnos($alumnos,$maestro,$aulas);
+    echo json_encode(array("valid" => 1,"msg" => "","res" =>$res["result"]));
+  }
+
 }
