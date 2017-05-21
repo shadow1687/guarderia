@@ -52,28 +52,38 @@ function initWizard(){
   $('#relate_wizard').smartWizard({
     // Properties
       onLeaveStep:function(obj,context){
-        if(context.toStep==3){
-          var maestro=get_selected("tbl_maestro");
-          if(maestro.length){
-            reloadTable("tbl_aula",initTableAulas,maestro[0]);
+        switch (context.toStep) {
+          case 2:{
+            var alumnos=get_selected("tbl_alumno");
+            if(alumnos.length){
+              return true;
+            }
+            else{
+              setMessage("debe seleccionar por lo menos un alumno.",_MSG_ERROR);
+              return false;
+            }
+          }break;
+          case 3:{
+            var maestro=get_selected("tbl_maestro");
+            if(maestro.length){
+              reloadTable("tbl_aula",initTableAulas,maestro[0]);
+              return true;
+            }
+            else{
+              setMessage("debe seleccionar un maestro.",_MSG_ERROR);
+              return false;
+            }
+          }break;
+          default:
             return true;
-          }
-          else{
-            alert("debe seleccionar un maestro");
-            return false;
-          }
+        }
+        if(context.toStep==3){
+
         }
         else{
           return true;
         }
       }
-      // onShowStep: function(obj,context){
-      //   if(context.fromStep==2){
-      //     //busco las aulas del maestro seleccionado
-      //     var maestro=get_selected("tbl_maestro");
-      //     reloadTable("tbl_aula",initTableAulas,maestro[0]);
-      //   }
-      // },
   });
   initTableAlumnos();
   initTableMaestros();

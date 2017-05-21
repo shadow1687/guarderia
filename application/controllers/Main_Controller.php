@@ -51,6 +51,7 @@ class Main_Controller extends CI_Controller {
     array_push($css,base_url()."css/main.css");
     //cargo scripts para dar funcionalidad comun
     array_push($js,base_url()."js/utils.js");
+    array_push($js,base_url()."js/main.js");
     array_push($js,base_url()."js/utils/jquery.mask.min.js");
     array_push($js,base_url()."js/utils/jquery-ui.min.js");
     array_push($js,base_url()."js/utils/moment.min.js");

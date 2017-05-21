@@ -19,3 +19,22 @@
 .hand{
   cursor:pointer;
 }
+
+
+/*NOTIFICACIONES*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600);
+
+.notification {
+  height: auto;
+  padding: 10px;
+  border-bottom: #0a0;
+  box-shadow: 0px 0px 2px rgba(0,0,0,0.35);
+  text-align: center;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
+  display: none;
+  z-index: 9999 !important;
+}
