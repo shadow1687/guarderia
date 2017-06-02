@@ -48,3 +48,21 @@ function initTable(){
     }
     $("#tbl_alumno").DataTable(data_table_object);
 }
+
+
+function registrar_alumnos(){
+  $.ajax({
+              type: "POST",
+              url: baseUrl + "api/categories",
+              data: {
+                  "name": name,
+                  "description": description
+              },
+              dataType: 'json',
+              contentType: 'application/json',
+              success: function(res) {
+                  alert(res)
+              }
+          });
+      });
+}

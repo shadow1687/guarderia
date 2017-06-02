@@ -225,14 +225,14 @@ function saveAsignacion(){
     $.ajax({
                 type: "POST",
                 url: _base_url + "/guarderia/establecimiento/Establecimiento_ajax/asignar_alumnos",
-                data: JSON.stringify({
+                data: {
                     "alumnos": relate_object.alumnos,
                     "maestro": relate_object.maestro,
-                    "aulas"  : relate_object.aula
-                }),
+                    "aulas"  : relate_object.aulas
+                },
                 dataType: 'json',
-                contentType: 'application/json',
-                success: function(res) {
+                success: function(response) {
+                  alert(response.res);
                   setMessage("success",_MSG_INFO);
                 }
             });

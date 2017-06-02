@@ -29,16 +29,16 @@ public function __construct()
 
 
   public function get_aulas(){
-    extract($this -> input -> post());
+    extract($this -> input -> post(),EXTR_OVERWRITE);
     $maestro=(isset($maestro))? $maestro:FALSE;
     $res = $this -> Establecimiento_model -> get_aulas($maestro);
     echo json_encode(array("valid" => 1,"msg" => "","res" =>$res["result"]));
   }
 
   public function asignar_alumnos(){
-    extract($this -> input -> post());
-    var_dump($alumnos,$maestro,$aula);exit;
-    $res = $this -> Establecimiento_model -> asignar_alumnos($alumnos,$maestro,$aulas);
+    extract($this -> input -> post(),EXTR_OVERWRITE);
+    //$res = $this -> Establecimiento_model -> asignar_alumnos($alumnos,$maestro,$aulas);
+    $res=array('result' => compact('alumnos','maestro','aulas'));
     echo json_encode(array("valid" => 1,"msg" => "","res" =>$res["result"]));
   }
 
