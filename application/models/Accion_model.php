@@ -24,6 +24,10 @@ class Accion_model extends CI_Model {
 
 	}
 
+	function obtener_acciones_2(){
+		$qry="SELECT * FROM accion;"
+		return $this -> qry_exec($qry,$this -> db,"array",array("manage_exception" => TRUE));
+	}
 
 }
 

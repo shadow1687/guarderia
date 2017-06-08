@@ -87,6 +87,11 @@ public function __construct()
     echo json_encode($data);
   }
 
+  public function get_acciones_2(){
+    $res = $this -> Accion_model -> obtener_acciones();
+    echo json_encode(array("valid" => 1,"msg" => "","res" =>$res["result"]));
+  }
+
   public function registrar_evento()
   {
     if(!$this->session->userdata('username'))

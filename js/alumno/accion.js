@@ -1,5 +1,5 @@
 $(function(){
-  initTable();
+  get_acciones();
   bindEvents();
 });
 
@@ -48,4 +48,17 @@ function initTable(){
         "bFilter":true
     }
     $("#tbl_alumno").DataTable(data_table_object);
+}
+
+function get_acciones(){
+    $.ajax({
+                type: "POST",
+                url: _base_url + "/guarderia/maestro/Maestro_ajax/get_acciones_2",
+                data: {},
+                dataType: 'json',
+                success: function(response) {
+                  var respuesta=response.res;
+                  setMessage("success",_MSG_INFO);
+                }
+            });
 }
