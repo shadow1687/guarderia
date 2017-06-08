@@ -9,6 +9,7 @@ public function __construct()
   parent::__construct();
   $this->load->model('Persona_model');
   $this->load->model('Evento_model');
+  $this->load->model('Accion_model');
 }
 
   public function crear()
@@ -69,6 +70,22 @@ public function __construct()
     echo json_encode(array("valid" => 1,"msg" => "","res" =>$res["result"]));
   }
 
+
+  public function get_acciones(){
+    $data = $this -> Accion_model -> obtener_acciones();
+/*
+    $arreglo=array();
+    foreach ($data ->result_array() as $row)
+    {
+      $arreglo[] = array(
+        'id' => $row['id'];
+      );
+
+    }
+    header('Content-type: application/json');
+    */
+    echo json_encode($data);
+  }
 
   public function registrar_evento()
   {

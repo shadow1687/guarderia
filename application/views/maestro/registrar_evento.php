@@ -17,7 +17,7 @@
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                                <div class="row">
+                            <!--    <div class="row">
                                     <div class="btn-group" data-toggle="buttons">
                                       <label class="btn btn-default">
                                         <input type="radio" name="evento" id="option1" value="llego"> Llegó
@@ -36,42 +36,40 @@
                                       </label>
                                     </div>
                                   </div>
+                                -->
+                                <div id="acciones" class="your-class slider">
+
+
+                                </div>
+
 
                 </div>
                 </div>
             </div>
           </div>
 
-          <div class="row">
-            <div class="x_content">
 
-                <div class="">
-                  <ul class="to_do">
-                    <li>
-                      <p>
-                        <input type="checkbox" name="alumnos[]" id="uno" value="1" class="flat"> Schedule meeting with new client </p>
-                    </li>
-                    <li>
-                      <p>
-                        <input type="checkbox" name="alumnos[]" id="dos" value="2" class="flat"> Create email address for new intern</p>
-                    </li>
-                    <li>
-                      <p>
-                        <input type="checkbox" name="alumnos[]" id="tres" value="3" class="flat"> Have IT fix the network printer</p>
-                    </li>
-                    <li>
-                      <p>
-                        <input type="checkbox" name="alumnos[]" id="cuatro" value="4" class="flat"> Copy backups to offsite location</p>
-                    </li>
-                    <li>
-                      <p>
-                        <input type="checkbox" name="alumnos[]" id="cinco" value="5" class="flat"> Food truck fixie locavors mcsweeney</p>
-                    </li>
 
-                  </ul>
-                </div>
-              </div>
+
+
+          <div class="x_content">
+              <table id="tbl_alumno" aria-describedby="datatable_info" role="grid" id="datatable" class="table table-striped table-bordered dataTable no-footer">
+              <thead>
+                <tr role="row">
+                  <th>DNI</th>
+                  <th>Apelido y Nombre</th>
+                  <th>Fecha Nacimiento</th>
+                  <th>Edad</th>
+                  <th>e-mail</th>
+                  <th>Dirección</th>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
           </div>
+
+
+
 
 
           <div class="form-group">
@@ -100,8 +98,79 @@
         </div>
       </div>
 
-      <!-- jQuery -->
+      <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+      <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+      <script src="<?=base_url()?>slick/slick.min.js"></script>
+    
+
+
+
+
+
+      <script>
+
+      function fillDiv(){
+                 $.ajax({
+                   type: "POST",
+                   url:"<?=base_url()?>maestro/Maestro_ajax/get_acciones",
+                   dataType: 'json',
+                  contentType: 'application/json',
+                   success: function(data) {
+
+                     //alert('Load was performed.');
+                   }
+                 });
+               }
+
+
+         $(document).ready(function(){
+
+           fillDiv();
+          $('#acciones').append("<div><i class=\"fa fa-apple fa-5x\"></i></div>");
+          $('#acciones').append("<div><i class=\"fa fa-home fa-5x\"></i></div>");
+          $('#acciones').append("<div><i class=\"fa fa-bus fa-5x\"></i></div>");
+          $('#acciones').append("<div><i class=\"fa fa-camera fa-5x\"></i></div>");
+          $('#acciones').append("<div><i class=\"fa fa-cutlery fa-5x\"></i></div>");
+          $('#acciones').append("<div><i class=\"fa fa-camera fa-5x\"></i></div>");
+          $('#acciones').append("<div><i class=\"fa fa-cutlery fa-5x\"></i></div>");
+
+
+           $('.your-class').slick({
+              centerMode: true,
+              centerPadding: '60px',
+              slidesToShow: 5,
+              dots: true,
+              responsive: [
+                {
+                  breakpoint: 768,
+                  settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 3
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1
+                  }
+                }
+              ]
+           });
+         });
+       </script>
+
+
+      <!-- jQuery
       <script src="<?=base_url()?>static/panel/vendors/jquery/dist/jquery.min.js"></script>
+      -->
+
       <!-- Bootstrap -->
       <script src="<?=base_url()?>static/panel/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
       <!-- FastClick -->

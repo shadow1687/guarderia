@@ -46,12 +46,17 @@ class Maestro extends Main_controller {
 
   public function registrar_evento()
   {
-    if(!$this->session->userdata('username'))
-      redirect('login');
 
     $this->load->view('headerpanel');
     $this->load->view('maestro/menu');
     $this->load->view('maestro/registrar_evento');
+
+    $js_to_load=array();
+    array_push($js_to_load,base_url()."/../js/establecimiento/maestro_lista.js");
+    array_push($js_to_load,base_url()."static/panel/vendors/datatables.net/js/jquery.dataTables.min.js");
+    $css_to_load=array();
+    array_push($css_to_load,base_url()."static/panel/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css");
+    $this -> default_vars($js_to_load,$css_to_load);
 
   }
 
