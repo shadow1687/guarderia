@@ -64,5 +64,4 @@ function registrar_alumnos(){
                   alert(res)
               }
           });
-      });
 }
