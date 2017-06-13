@@ -71,8 +71,8 @@ public function __construct()
   }
 
 
-  public function get_acciones(){
-    $data = $this -> Accion_model -> obtener_acciones();
+//  public function get_acciones(){
+//    $data = $this -> Accion_model -> obtener_acciones();
 /*
     $arreglo=array();
     foreach ($data ->result_array() as $row)
@@ -84,13 +84,34 @@ public function __construct()
     }
     header('Content-type: application/json');
     */
-    echo json_encode($data);
-  }
+//    echo json_encode($data);
+//  }
 
   public function get_acciones_2(){
-    $res = $this -> Accion_model -> obtener_acciones();
-    echo json_encode(array("valid" => 1,"msg" => "","res" =>$res["result"]));
+    $res = $this -> Accion_model -> obtener_acciones_2();
+    //echo json_encode(array("valid" => 1,"msg" => "","res" =>$res["result"]));
+/*    $data=array(
+      "id" => 1,
+      "tipo" => "algo"
+    );
+  */
+$data=array();
+    /*while ($row= mysql_fetch_array($res, MYSQL_NUM))
+    {
+
+      $data[] = array (
+
+        "id" => $row[0],
+        "tipo" => $row[1]
+      );
+    }
+*/
+    header('Content-type: application/json');
+
+    echo json_encode($res);
   }
+
+
 
   public function registrar_evento()
   {

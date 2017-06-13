@@ -1,7 +1,7 @@
 
 
 <!-- page content -->
-<form class="form-horizontal form-label-left" action='../Maestro_ajax/registrar_evento' method='POST' novalidate>
+
       <div class="right_col" role="main">
         <div class="">
 
@@ -42,6 +42,9 @@
 
                                 </div>
 
+                                <select id="countrydll"></select>
+
+
 
                 </div>
                 </div>
@@ -52,21 +55,6 @@
 
 
 
-          <div class="x_content">
-              <table id="tbl_alumno" aria-describedby="datatable_info" role="grid" id="datatable" class="table table-striped table-bordered dataTable no-footer">
-              <thead>
-                <tr role="row">
-                  <th>DNI</th>
-                  <th>Apelido y Nombre</th>
-                  <th>Fecha Nacimiento</th>
-                  <th>Edad</th>
-                  <th>e-mail</th>
-                  <th>Dirección</th>
-              </thead>
-              <tbody>
-              </tbody>
-            </table>
-          </div>
 
 
 
@@ -83,7 +71,7 @@
       </div>
 
 
-    </form>
+
       <!-- /page content -->
       <!-- validator -->
 
@@ -103,68 +91,47 @@
       <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
       <script src="<?=base_url()?>slick/slick.min.js"></script>
-    
+
+      <script type="text/javascript">
+        function Country(){
+          $('#countrydll').empty();
+          $('#countrydll').append("<option>Loading......</option>");
+
+          $.ajax({
+            type:"POST",
+            url:_base_url + "/guarderia/maestro/Maestro_ajax/get_acciones_2",
+            //"<?php echo site_url('maestro/Maestro_ajax/get_acciones_2')?>",
+            //<?=base_url()?>maestro/Maestro_ajax/get_acciones_2
+
+            contentType:"application/json; charset=utf-8",
+            dataType:"json",
+            success: function(data){
+                $('#countrydll').empty();
+                $('#countrydll').append("<option value='0'> --Select country-- </option>");
+
+                $.each(data, function(i, item){
+                    $('#countrydll').append('<option> '+data+' </option>');
+
+                });
+
+
+            },
+            complete: function(){
+            }
+          });
+
+        }
+
+        $(document).ready(function(){
+          Country();
+        });
+      </script>
 
 
 
 
 
-      <script>
 
-      function fillDiv(){
-                 $.ajax({
-                   type: "POST",
-                   url:"<?=base_url()?>maestro/Maestro_ajax/get_acciones",
-                   dataType: 'json',
-                  contentType: 'application/json',
-                   success: function(data) {
-
-                     //alert('Load was performed.');
-                   }
-                 });
-               }
-
-
-         $(document).ready(function(){
-
-           fillDiv();
-          $('#acciones').append("<div><i class=\"fa fa-apple fa-5x\"></i></div>");
-          $('#acciones').append("<div><i class=\"fa fa-home fa-5x\"></i></div>");
-          $('#acciones').append("<div><i class=\"fa fa-bus fa-5x\"></i></div>");
-          $('#acciones').append("<div><i class=\"fa fa-camera fa-5x\"></i></div>");
-          $('#acciones').append("<div><i class=\"fa fa-cutlery fa-5x\"></i></div>");
-          $('#acciones').append("<div><i class=\"fa fa-camera fa-5x\"></i></div>");
-          $('#acciones').append("<div><i class=\"fa fa-cutlery fa-5x\"></i></div>");
-
-
-           $('.your-class').slick({
-              centerMode: true,
-              centerPadding: '60px',
-              slidesToShow: 5,
-              dots: true,
-              responsive: [
-                {
-                  breakpoint: 768,
-                  settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 3
-                  }
-                },
-                {
-                  breakpoint: 480,
-                  settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1
-                  }
-                }
-              ]
-           });
-         });
-       </script>
 
 
       <!-- jQuery

@@ -14,51 +14,60 @@ function bindEvents(source){
   }
 }
 
-function initTable(){
-  var url='../../maestro/Maestro_ajax/get_maestros';
-  data_table_object= {
-        "ajax": {
-          'url':url,
-          'data':{  },
-          "type": "POST",
-          'dataSrc':"res"
-        },
-        "columns": [
-            { "data": "dni",'className':'text-right' },
-            { "data": "",
-              render: function ( data, type, row ) {
-                  return row.apellido+", "+row.nombre;
-               }
-            },
-            { "data": "",'className':'texts-center',
-              render: function ( data, type, row ) {
-                  return moment(row.nacimiento).format("DD/MM/YYYY");
-               }
-            },
-            { "data": "edad",'className':'text-right' },
-            { "data": "email",'className':'text-right' },
-            { "data": "",
-              render: function ( data, type, row ) {
-                  return row.direccion+((row.ciudad!="")? " ( "+row.ciudad+" )":"");
-               }
-            },
-        ],
-        "paging":   true,
-        "ordering": [[2,'asc']],
-        "bFilter":true
-    }
-    $("#tbl_alumno").DataTable(data_table_object);
-}
 
 function get_acciones(){
-    $.ajax({
-                type: "POST",
-                url: _base_url + "/guarderia/maestro/Maestro_ajax/get_acciones_2",
-                data: {},
-                dataType: 'json',
-                success: function(response) {
-                  var respuesta=response.res;
-                  setMessage("success",_MSG_INFO);
-                }
-            });
-}
+
+
+
+          //  $(document).ready(function(){
+
+/*
+              $.ajax({
+                          type: "POST",
+                          url: _base_url + "/guarderia/maestro/Maestro_ajax/get_acciones_2",
+                          data: {},
+                          dataType: 'json',
+                          success: function(response) {
+                            var respuesta=response.res;
+                            alert(response.res);
+                            setMessage("success",_MSG_INFO);
+                          }
+                      });
+
+             $('#acciones').append("<div><i class=\"fa fa-apple fa-5x\"></i></div>");
+             $('#acciones').append("<div><i class=\"fa fa-home fa-5x\"></i></div>");
+             $('#acciones').append("<div><i class=\"fa fa-bus fa-5x\"></i></div>");
+             $('#acciones').append("<div><i class=\"fa fa-camera fa-5x\"></i></div>");
+             $('#acciones').append("<div><i class=\"fa fa-cutlery fa-5x\"></i></div>");
+             $('#acciones').append("<div><i class=\"fa fa-camera fa-5x\"></i></div>");
+             $('#acciones').append("<div><i class=\"fa fa-cutlery fa-5x\"></i></div>");
+
+
+              $('.your-class').slick({
+                 centerMode: true,
+                 centerPadding: '100px',
+                 slidesToShow: 5,
+                 dots: true,
+                 responsive: [
+                   {
+                     breakpoint: 768,
+                     settings: {
+                       arrows: false,
+                       centerMode: true,
+                       centerPadding: '40px',
+                       slidesToShow: 3
+                     }
+                   },
+                   {
+                     breakpoint: 480,
+                     settings: {
+                       arrows: false,
+                       centerMode: true,
+                       centerPadding: '40px',
+                       slidesToShow: 1
+                     }
+                   }
+                 ]
+              });
+              */
+            }
