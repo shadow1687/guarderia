@@ -52,9 +52,11 @@ class Maestro extends Main_controller {
     $this->load->view('maestro/registrar_evento');
 
     $js_to_load=array();
-    //array_push($js_to_load,base_url()."/../js/alumno/accion.js");
+    array_push($js_to_load,base_url()."/../js/alumno/accion.js");
+    array_push($js_to_load,base_url()."/../js/slick/slick.min.js");
     array_push($js_to_load,base_url()."static/panel/vendors/datatables.net/js/jquery.dataTables.min.js");
     $css_to_load=array();
+    array_push($css_to_load,base_url()."/../js/slick/slick.css");
     array_push($css_to_load,base_url()."static/panel/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css");
     $this -> default_vars($js_to_load,$css_to_load);
 

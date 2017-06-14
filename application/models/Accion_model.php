@@ -2,7 +2,7 @@
 
 if (! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Accion_model extends CI_Model {
+class Accion_model extends Generic_model {
 
 	function __construct(){
 		parent::__construct();
@@ -26,8 +26,8 @@ class Accion_model extends CI_Model {
 
 	function obtener_acciones_2(){
 
-		$sql = $this->db->get('accion');
-		if ($sql->num_rows()>0) return $sql;
+		$qry="select * from accion";
+		return $this -> qry_exec($qry,$this -> db,"array",array("manage_exception" => TRUE));
 
 	}
 

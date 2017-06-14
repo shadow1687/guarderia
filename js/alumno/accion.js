@@ -21,7 +21,7 @@ function get_acciones(){
 
           //  $(document).ready(function(){
 
-/*
+
               $.ajax({
                           type: "POST",
                           url: _base_url + "/guarderia/maestro/Maestro_ajax/get_acciones_2",
@@ -29,21 +29,13 @@ function get_acciones(){
                           dataType: 'json',
                           success: function(response) {
                             var respuesta=response.res;
-                            alert(response.res);
-                            setMessage("success",_MSG_INFO);
+                            respuesta.forEach(function(e, i, a){
+                              $('#acciones').append("<div>"+e.descripcion+"</div>");
+                            });
                           }
                       });
 
-             $('#acciones').append("<div><i class=\"fa fa-apple fa-5x\"></i></div>");
-             $('#acciones').append("<div><i class=\"fa fa-home fa-5x\"></i></div>");
-             $('#acciones').append("<div><i class=\"fa fa-bus fa-5x\"></i></div>");
-             $('#acciones').append("<div><i class=\"fa fa-camera fa-5x\"></i></div>");
-             $('#acciones').append("<div><i class=\"fa fa-cutlery fa-5x\"></i></div>");
-             $('#acciones').append("<div><i class=\"fa fa-camera fa-5x\"></i></div>");
-             $('#acciones').append("<div><i class=\"fa fa-cutlery fa-5x\"></i></div>");
-
-
-              $('.your-class').slick({
+              $('.slider').slick({
                  centerMode: true,
                  centerPadding: '100px',
                  slidesToShow: 5,
@@ -69,5 +61,5 @@ function get_acciones(){
                    }
                  ]
               });
-              */
+
             }

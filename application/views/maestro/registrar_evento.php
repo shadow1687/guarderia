@@ -42,10 +42,7 @@
 
                                 </div>
 
-                                <select id="countrydll"></select>
-
-
-
+              
                 </div>
                 </div>
             </div>
@@ -90,9 +87,7 @@
 
       <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
-      <script src="<?=base_url()?>slick/slick.min.js"></script>
-
-      <script type="text/javascript">
+      <!-- <script type="text/javascript">
         function Country(){
           $('#countrydll').empty();
           $('#countrydll').append("<option>Loading......</option>");
@@ -125,7 +120,7 @@
         $(document).ready(function(){
           Country();
         });
-      </script>
+      </script> -->
 
 
 

@@ -29,8 +29,6 @@
     <!-- Custom Theme Style -->
     <link href="<?=base_url()?>static/panel/build/css/custom.min.css" rel="stylesheet">
 
-<link href="<?=base_url()?>slick/slick.css" rel="stylesheet">
-<link href="<?=base_url()?>slick/slick-theme.css" rel="stylesheet">
 
 
 
