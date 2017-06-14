@@ -64,8 +64,5 @@ function registrar_alumnos(){
                   alert(res)
               }
           });
-<<<<<<< HEAD
 
-=======
->>>>>>> 753405c672a663efd9861a1ea632e238ccced5c8
 }

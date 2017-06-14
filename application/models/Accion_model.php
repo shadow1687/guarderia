@@ -25,17 +25,10 @@ class Accion_model extends CI_Model {
 	}
 
 	function obtener_acciones_2(){
-<<<<<<< HEAD
-		//$qry="SELECT id, tipo FROM accion";
-		//return $this -> qry_exec($qry,$this -> db,"array",array("manage_exception" => TRUE));
-		//$sql= mysql_query($qry);
 
 		$sql = $this->db->get('accion');
 		if ($sql->num_rows()>0) return $sql;
-=======
-		$qry="SELECT * FROM accion;";
-		return $this -> qry_exec($qry,$this -> db,"array",array("manage_exception" => TRUE));
->>>>>>> 753405c672a663efd9861a1ea632e238ccced5c8
+
 	}
 
 }
