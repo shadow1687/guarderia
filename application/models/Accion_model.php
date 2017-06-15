@@ -17,7 +17,7 @@ class Accion_model extends Generic_model {
 
 
 	function obtener_acciones(){
-		$query = $this->db->get('accion');
+		$query = $this->db->get('accion'); 
 		if ($query->num_rows() >0 ) return $query;
 
 

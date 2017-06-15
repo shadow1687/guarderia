@@ -39,7 +39,7 @@
   slidesToShow: 5,
   autoplay:true,
   dots:true,
-  
+
   responsive: [
     {
       breakpoint: 768,

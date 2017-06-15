@@ -16,35 +16,13 @@
 
                   <div class="clearfix"></div>
                 </div>
-                <div class="x_content">
-                            <!--    <div class="row">
-                                    <div class="btn-group" data-toggle="buttons">
-                                      <label class="btn btn-default">
-                                        <input type="radio" name="evento" id="option1" value="llego"> Llegó
-                                      </label>
-                                      <label class="btn btn-default">
-                                        <input type="radio" name="evento" id="option2" value="durmio"> Durmió
-                                      </label>
-                                      <label class="btn btn-default">
-                                        <input type="radio" name="evento" id="option3" value="comio"> Comió
-                                      </label>
-                                      <label class="btn btn-default">
-                                        <input type="radio" name="evento" id="option1" value="jugo"> Jugó
-                                      </label>
-                                      <label class="btn btn-default">
-                                        <input type="radio" name="evento" id="option3" value="retiro"> Se retiró
-                                      </label>
-                                    </div>
-                                  </div>
-                                -->
-                                <div id="acciones" class="your-class slider">
-
-
-                                </div>
-
-              
-                </div>
-                </div>
+                  <div class="x_panel">
+                    <div class="x_content">
+                      <div class="your-class">
+                      </div>
+                    </div>
+                  </div>
+              </div>
             </div>
           </div>
 

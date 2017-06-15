@@ -52,11 +52,15 @@ class Maestro extends Main_controller {
     $this->load->view('maestro/slicker');
 
     $js_to_load=array();
-    
+
     array_push($js_to_load,base_url()."static/panel/vendors/datatables.net/js/jquery.dataTables.min.js");
+    array_push($js_to_load,"http://code.jquery.com/jquery-1.11.0.min.js");
+    array_push($js_to_load,"http://code.jquery.com/jquery-migrate-1.2.1.min.js");
     $css_to_load=array();
 
     array_push($css_to_load,base_url()."static/panel/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css");
+    array_push($css_to_load,base_url()."js/slick/slick-theme.css");
+    array_push($css_to_load,base_url()."js/slick/slick.css");
     $this -> default_vars($js_to_load,$css_to_load);
 }
 

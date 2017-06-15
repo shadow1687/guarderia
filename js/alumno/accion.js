@@ -30,36 +30,38 @@ function get_acciones(){
                           success: function(response) {
                             var respuesta=response.res;
                             respuesta.forEach(function(e, i, a){
-                              $('#acciones').append("<div>"+e.descripcion+"</div>");
+                              $('.your-class').append("<div>"+e.tipo+"</div>");
                             });
+                            $('.your-class').slick({
+                                    centerMode: true,
+                                    centerPadding: '60px',
+                                    slidesToShow: 5,
+                                    autoplay:true,
+                                    dots:true,
+
+                                    responsive: [
+                                      {
+                                        breakpoint: 768,
+                                        settings: {
+                                          arrows: true,
+                                          centerMode: true,
+                                          centerPadding: '40px',
+                                          slidesToShow: 3
+                                        }
+                                      },
+                                      {
+                                        breakpoint: 480,
+                                        settings: {
+                                          arrows: true,
+                                          centerMode: true,
+                                          centerPadding: '40px',
+                                          slidesToShow: 1
+                                        }
+                                      }
+                                    ]
+                                  });
                           }
                       });
 
-              $('.slider').slick({
-                 centerMode: true,
-                 centerPadding: '100px',
-                 slidesToShow: 5,
-                 dots: true,
-                 responsive: [
-                   {
-                     breakpoint: 768,
-                     settings: {
-                       arrows: false,
-                       centerMode: true,
-                       centerPadding: '40px',
-                       slidesToShow: 3
-                     }
-                   },
-                   {
-                     breakpoint: 480,
-                     settings: {
-                       arrows: false,
-                       centerMode: true,
-                       centerPadding: '40px',
-                       slidesToShow: 1
-                     }
-                   }
-                 ]
-              });
 
             }
