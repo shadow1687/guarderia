@@ -8,6 +8,7 @@
                   <li><a><i class="fa fa-home"></i> Eventos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php base_url()?>maestro/Maestro/registrar_evento">Registrar eventos</a></li>
+                      <li><a href="<?php base_url()?>maestro/Maestro/registrar_evento_2">Slicker</a></li>
 
                     </ul>
                   </li>
