@@ -30,7 +30,7 @@ function get_acciones(){
                           success: function(response) {
                             var respuesta=response.res;
                             respuesta.forEach(function(e, i, a){
-                              $('.your-class').append("<div>"+e.tipo+"</div>");
+                              $('.your-class').append("<h1 class='text-center'><i class='fa fa-"+e.icon+" text-140 '></i></h1>");
                             });
                             $('.your-class').slick({
                                     centerMode: true,
