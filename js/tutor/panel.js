@@ -1,4 +1,5 @@
 $(function(){
+  loadChilds();
 });
 
 function loadChilds(){
@@ -8,12 +9,19 @@ function loadChilds(){
               data: {},
               dataType: 'json',
               success: function(response) {
-                  var respuesta=response.res;
-                  for (var i = 1; i < respuesta.length+1; i++) {
-                      $('#tabs ul').append('<li><a href="#tabs-'+i+'">'+respuesta['nombre']+'</a></li>');
-                      $('#tabs').append('<div id="tabs-'+i+'"></div>');
+                  if(response.valid==0){
+                    setMessage("Ocurrio un error al buscar hijos: ["+response.res+"]",_MSG_ERROR);
                   }
-                  $("#tabs").tabs();
+                  else {
+                    var respuesta=response.res;
+                    for (var i = 0; i < respuesta.length; i++) {
+                        var imagen='<img src="http://127.0.0.1/guarderia/images/'+(i+1)+'.jpg" class="img-circle child_img">';
+                        var nombre='<span class="text-140 text-bold">'+respuesta[i]['apellido']+", "+respuesta[i]['nombre']+'</span>';
+                        $('#tabs ul').append('<li><a href="#tabs-'+(i+1)+'" >'+imagen+"&nbsp;"+nombre+'</a></li>');
+                        $('#tabs').append('<div id="tabs-'+(i+1)+'"><h1>TABLA DE EVENTOS</h1></div>');
+                    }
+                    $("#tabs").tabs();
+                  }
               }
           });
 }

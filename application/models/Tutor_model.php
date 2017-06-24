@@ -1,8 +1,8 @@
 <?php
-require_once(BASEPATH ."../application/models/Generic_model.php");
+require_once(BASEPATH ."../application/models/Persona_model.php");
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Persona_model extends Generic_model {
+class Tutor_model extends Persona_model {
 
 public $variable;
 
@@ -12,27 +12,13 @@ public function __construct()
   $db=$this->load->database();
 }
 
-
-	public function get_persona($args=array())
-	{
-    $qry="SELECT * FROM persona WHERE 1 {$filter}";
-
+  public function  get_childs($user_id){
+    $qry= "SELECT h.*
+           FROM persona p
+           JOIN relacion r ON (r.id1=p.id AND st=".REL_PADRE_HIJO.")
+           JOIN persona h ON (r.id2=h.id)
+           WHERE p.id={$user_id};";
     return $this -> qry_exec($qry,$this -> db,"array",array("manage_exception" => TRUE));
-
-	}
-
-
-  function crear_persona($tipo, $data){
-    $this->db->insert('persona', array('tipo'=>$tipo, 'nombre'=>$data['nombre'], 'apellido'=>$data['apellido'], 'dni'=>$data['dni'],
-    'email'=>$data['email'], 'nacimiento'=>$data['nacimiento'],'edad'=>$data['edad'], 'direccion'=>$data['direccion'],
-    'ciudad'=>$data['ciudad']));
-	}
-
-
-	 function obtener_personas($tipo){
-    $tipo_filter=(isset($tipo) && $tipo>=0) ? " AND tipo={$tipo} ":"";
-    $qry="SELECT * FROM persona WHERE 1 {$tipo_filter};";
-		return $this -> qry_exec($qry,$this -> db,"array",array("manage_exception" => TRUE));
-	}
+  }
 
 }

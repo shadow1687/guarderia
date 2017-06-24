@@ -26,6 +26,7 @@ public function __construct()
       $this->load->model('Persona_model');
       $persona=$this -> Persona_model -> get_persona(array("id" => ($user -> persona)));
       $_SESSION["tipo"]=$persona["result"][0]["tipo"];
+      $_SESSION["id"] = $persona["result"][0]["id"];
       redirect('welcome');
     }
     else{
