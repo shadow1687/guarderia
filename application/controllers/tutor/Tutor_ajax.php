@@ -7,7 +7,7 @@ class Tutor_ajax extends Main_controller {
 public function __construct()
 {
   parent::__construct();
-  $this->load->model('Persona_model');
+  $this->load->model('Tutor_model');
 }
 
   public function crear()
@@ -29,7 +29,7 @@ public function __construct()
 
       if ($this->validar($data))
        {
-          $this->Persona_model->crear_persona(TUTOR,$data);
+          $this -> Tutor_model-> crear_persona(TUTOR,$data);
           redirect('welcome');
         }
       else {
@@ -67,8 +67,18 @@ public function __construct()
 
 
   public function get_tutores(){
-    $res = $this -> Persona_model -> obtener_personas(TUTOR);
+    $res = $this -> Tutor_model -> obtener_personas(TUTOR);
     echo json_encode(array("valid" => 1,"msg" => "","res" =>$res["result"]));
+  }
+
+  public function get_childs(){
+    $res = $this -> Tutor_model -> get_childs($this -> session -> userdata('id'));
+    if($res["success"]){
+      echo json_encode(array("valid" => 1,"msg" => "","res" =>$res["result"]));
+    }
+    else{
+      echo json_encode(array("valid" => 0,"msg" => "","res" =>$res["msg"]));
+    }
   }
 
 }

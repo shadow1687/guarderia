@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-require_once(dirname(__FILE__)."/Main_Controller.php"); 
+require_once(dirname(__FILE__)."/Main_Controller.php");
 
 class Login extends Main_Controller {
 
@@ -26,6 +26,7 @@ public function __construct()
       $this->load->model('Persona_model');
       $persona=$this -> Persona_model -> get_persona(array("id" => ($user -> persona)));
       $_SESSION["tipo"]=$persona["result"][0]["tipo"];
+      $_SESSION["id"] = $persona["result"][0]["id"];
       redirect('welcome');
     }
     else{
