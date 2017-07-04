@@ -20,6 +20,9 @@
   cursor:pointer;
 }
 
+.div_selected{
+  background-color: #cce8e4;
+}
 
 /*NOTIFICACIONES*/
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600);

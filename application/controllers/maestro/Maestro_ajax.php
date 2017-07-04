@@ -123,21 +123,6 @@ public function __construct()
       redirect('welcome');
 
 
-      /*if ($this->validar($data))
-       {
-          $this->Persona_model->crear_persona(MAESTRO,$data);
-          redirect('welcome');
-        }
-      else {
-            $this->load->view('headerpanel');
-            $this->load->view('maestro/menu');
-            $this->load->view('maestro/crearmaestro');
-          }
-*/
-    //$this->Persona_model->crear_persona(MAESTRO,$data);
-
-    //redirect('welcome');
-    //echo 'Consulta enviada con exito';
   }
 
 }

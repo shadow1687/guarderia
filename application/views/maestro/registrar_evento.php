@@ -18,26 +18,31 @@
                 </div>
                   <div class="x_panel">
                     <div class="x_content">
-                      <div class="your-class">
+                      <div id="evento" class="your-class">
                       </div>
                     </div>
+
+
+                    <div style="min-height:400px">
+                          <table id="tbl_alumno" aria-describedby="datatable_info" role="grid" id="datatable" class="table table-striped table-bordered dataTable no-footer">
+                          <thead>
+                            <tr role="row">
+                              <th>Apelido y Nombre</th>
+                              <th>Edad</th>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                        </table>
+                    </div>
+
+
+                    <center>
+                        <button class="btn btn-success" id="registrar"><i class="fa fa-plus"></i> Registrar evento</button>
+                    </center>
+
+
                   </div>
               </div>
-            </div>
-          </div>
-
-
-
-
-
-
-
-
-
-
-          <div class="form-group">
-            <div class="col-md-6 col-md-offset-3">
-              <button id="send" type="submit" class="btn btn-success">Registrar evento</button>
             </div>
           </div>
 
@@ -64,52 +69,6 @@
       <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
       <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-      <!-- <script type="text/javascript">
-        function Country(){
-          $('#countrydll').empty();
-          $('#countrydll').append("<option>Loading......</option>");
-
-          $.ajax({
-            type:"POST",
-            url:_base_url + "/guarderia/maestro/Maestro_ajax/get_acciones_2",
-            //"<?php echo site_url('maestro/Maestro_ajax/get_acciones_2')?>",
-            //<?=base_url()?>maestro/Maestro_ajax/get_acciones_2
-
-            contentType:"application/json; charset=utf-8",
-            dataType:"json",
-            success: function(data){
-                $('#countrydll').empty();
-                $('#countrydll').append("<option value='0'> --Select country-- </option>");
-
-                $.each(data, function(i, item){
-                    $('#countrydll').append('<option> '+data+' </option>');
-
-                });
-
-
-            },
-            complete: function(){
-            }
-          });
-
-        }
-
-        $(document).ready(function(){
-          Country();
-        });
-      </script> -->
-
-
-
-
-
-
-
-
-      <!-- jQuery
-      <script src="<?=base_url()?>static/panel/vendors/jquery/dist/jquery.min.js"></script>
-      -->
 
       <!-- Bootstrap -->
       <script src="<?=base_url()?>static/panel/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
