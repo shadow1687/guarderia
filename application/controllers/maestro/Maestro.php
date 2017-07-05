@@ -47,10 +47,9 @@ class Maestro extends Main_controller {
   public function registrar_evento_2()
   {
 
-    $this->load->view('headerpanel');
-    $this->load->view('maestro/menu');
-    $this->load->view('maestro/slicker');
-
+    parent::header();
+    $this -> load -> view("maestro/slicker");
+    parent::footer();
     $js_to_load=array();
 
     array_push($js_to_load,base_url()."static/panel/vendors/datatables.net/js/jquery.dataTables.min.js");
@@ -69,10 +68,9 @@ class Maestro extends Main_controller {
 
   public function registrar_evento()
   {
-
-    $this->load->view('headerpanel');
-    $this->load->view('maestro/menu');
-    $this->load->view('maestro/registrar_evento');
+    parent::header();
+    $this -> load -> view("maestro/registrar_evento");
+    parent::footer();
 
     $js_to_load=array();
     array_push($js_to_load,base_url()."/../js/alumno/accion.js");

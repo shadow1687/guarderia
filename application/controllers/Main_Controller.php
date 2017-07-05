@@ -24,12 +24,15 @@ class Main_Controller extends CI_Controller {
       }break;
       case MAESTRO :     		{
                               $this -> load -> view('/maestro/menu');
+                              $this -> default_vars();
       }break;
       case ESTABLECIMIENTO :{
                               $this -> load -> view('/establecimiento/menu');
+                              $this -> default_vars();
       }break;
       default:    		 			{
                               $this -> load -> view('menu');
+                              $this -> default_vars();
       }break;
     }
   }

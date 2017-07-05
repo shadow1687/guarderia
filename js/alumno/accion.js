@@ -67,11 +67,8 @@ function get_acciones(){
                           success: function(response) {
                             var respuesta=response.res;
                             respuesta.forEach(function(e, i, a){
-<<<<<<< HEAD
                               $('.your-class').append("<div id=\"selectable\">"+e.tipo+"</div>");
-=======
                               $('.your-class').append("<h1 class='text-center'><i class='fa fa-"+e.icon+" text-140 '></i></h1>");
->>>>>>> cd696035f8f6340082527760d09612b951a1c164
                             });
                             $('.your-class').slick({
                                     centerMode: true,
@@ -175,5 +172,5 @@ function get_acciones(){
 
 
             function get_div_selected(id_div){
-              
+
             }
