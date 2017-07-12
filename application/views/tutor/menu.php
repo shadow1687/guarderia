@@ -17,7 +17,7 @@
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Menú semanal <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="general_elements.html">Ver menu</a></li>
+                      <li><a href="<?php base_url()?>maestro/Maestro/ver_menu_semanal">Ver menu</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i> Alumnos <span class="fa fa-chevron-down"></span></a>

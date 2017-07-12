@@ -8,6 +8,7 @@ class Maestro extends Main_controller {
   {
     parent::__construct();
     $this->load->model('Persona_model');
+    $this->load->model('Menu_semanal_model');
   }
 
   public function crear_maestro(){
@@ -82,6 +83,23 @@ class Maestro extends Main_controller {
     array_push($css_to_load,base_url()."static/panel/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css");
     $this -> default_vars($js_to_load,$css_to_load);
 
+  }
+
+
+
+  public function ver_menu_semanal(){
+    if(!$this->session->userdata('username'))
+      redirect('login');
+
+      $monday = date( 'Y-m-d', strtotime( 'monday this week' ) );
+      $friday = date( 'Y-m-d', strtotime( 'friday this week' ) );
+
+    $data['menues'] =  $this->Menu_semanal_model ->get_menu_semanal($monday, $friday);
+    //var_dump($data);exit;
+    parent::header();
+    $this->load->view('maestro/menusemanal', $data);
+    parent::footer();
+    $this -> default_vars();
   }
 
 }
