@@ -25,12 +25,19 @@ public function qry_exec($query,$db,$type,$config=array()){
 			$ind++;
 		}
 	}
+	else{
 
+	}
 
 	switch($type){
     case 'simple' : {
-                      $qry = $this->db->simple_query($query);
-                      $result = $qry;
+											if(is_array($query)){
+												$result=null;
+											}
+											else{
+												$qry = $this->db->simple_query($query);
+												$result = $qry;
+											}
     }break;
     case 'array' :
     case 'row'   :

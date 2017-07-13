@@ -127,7 +127,7 @@ function initTableAlumnos(){
           "bFilter":true,
           "rowCallback": function( row, data, index ) {
             $(row).addClass("hand");
-            $(row).attr("id",data.dni);
+            $(row).attr("id",data.id_persona);
           },
           "initComplete": function( settings ) {
              bindEvents("tbl_alumno");
@@ -145,7 +145,6 @@ function registrar_evento(data){
                 data: data,
                 dataType: 'json',
                 success: function(response) {
-                  alert(response.res);
                   setMessage("success",_MSG_INFO);
                 }
             });

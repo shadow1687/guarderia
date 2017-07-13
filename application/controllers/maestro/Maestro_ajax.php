@@ -98,32 +98,12 @@ public function __construct()
   {
     if(!$this->session->userdata('username'))
       redirect('login');
-
-      $data = array(
+    $data = array(
       'alumnos'        => $this->input->post('alumnos[]'),
       'evento'      => $this->input->post('evento'),
-      );
-
-      $dtz = new DateTimeZone("America/Argentina/Buenos_Aires"); //Your timezone
-      $now = new DateTime(date("Y-m-d H:i:s"), $dtz);
-
-      $alumnos= $data['alumnos'];
-
-      foreach ($alumnos as $alumno)
-      {
-          $evento= array(
-            'fecha_hora'  =>  $now->format("Y-m-d H:i:s"),
-            'tipo'        =>  $data['evento'],
-            'alumno'      =>  $alumno,
-            'descripcion' =>  COMER,
-          );
-          var_dump($evento);exit;
-          $this->Evento_model->ingresar_evento($evento);
-      }
-
-      redirect('welcome');
-
-
+    );
+    $this->Evento_model->registrar_eventos($data);
+    echo json_encode(array('valid' => 1,"msg" => '', "res" =>null ));
   }
 
 }
