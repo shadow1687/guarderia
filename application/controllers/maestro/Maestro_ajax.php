@@ -117,6 +117,7 @@ public function __construct()
             'alumno'      =>  $alumno,
             'descripcion' =>  COMER,
           );
+          var_dump($evento);exit;
           $this->Evento_model->ingresar_evento($evento);
       }
 

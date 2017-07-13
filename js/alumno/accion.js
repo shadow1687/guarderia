@@ -1,4 +1,3 @@
-relate_object={'alumnos':[],'evento':''};
 
 
 $(function(){
@@ -46,9 +45,9 @@ function bindEvents(source){
       $("#registrar").off().click(function(e){
         e.preventDefault();
         e.stopPropagation();
-        relate_object.aulas=get_selected("tbl_aula");
-        relate_object.evento= get_div_selected("evento");
-        registrar_evento();
+        var evento=$('.your-class .slick-current div');
+        var data={'alumnos':get_selected("tbl_alumno"),'evento':evento[0].id};-
+        registrar_evento(data);
       });
 
   }
@@ -57,120 +56,115 @@ function bindEvents(source){
 
 
 function get_acciones(){
+    $.ajax({
+                type: "POST",
+                url: _base_url + "/guarderia/maestro/Maestro_ajax/get_acciones_2",
+                data: {},
+                dataType: 'json',
+                success: function(response) {
+                  var respuesta=response.res;
+                  respuesta.forEach(function(e, i, a){
+                    var icon=e.tipo+"<h1 class='text-center'><i class='fa fa-"+e.icon+" text-140 '></i></h1>";
+                    $('.your-class').append("<center><div id='"+e.id+"'>"+icon+"</div></center>");
+                  });
+                  $('.your-class').slick({
+                          centerMode: true,
+                          centerPadding: '60px',
+                          slidesToShow: 5,
+                          //autoplay:true,
+                          dots:true,
 
-
-              $.ajax({
-                          type: "POST",
-                          url: _base_url + "/guarderia/maestro/Maestro_ajax/get_acciones_2",
-                          data: {},
-                          dataType: 'json',
-                          success: function(response) {
-                            var respuesta=response.res;
-                            respuesta.forEach(function(e, i, a){
-                              $('.your-class').append("<div id=\"selectable\">"+e.tipo+"</div>");
-                              $('.your-class').append("<h1 class='text-center'><i class='fa fa-"+e.icon+" text-140 '></i></h1>");
-                            });
-                            $('.your-class').slick({
-                                    centerMode: true,
-                                    centerPadding: '60px',
-                                    slidesToShow: 5,
-                                    //autoplay:true,
-                                    dots:true,
-
-                                    responsive: [
-                                      {
-                                        breakpoint: 768,
-                                        settings: {
-                                          arrows: true,
-                                          centerMode: true,
-                                          centerPadding: '40px',
-                                          slidesToShow: 3
-                                        }
-                                      },
-                                      {
-                                        breakpoint: 480,
-                                        settings: {
-                                          arrows: true,
-                                          centerMode: true,
-                                          centerPadding: '40px',
-                                          slidesToShow: 1
-                                        }
-                                      }
-                                    ]
-                                  });
-                          }
-                      });
-            }
-
-
-
-            function initTableAlumnos(){
-                var url=_base_url+'/guarderia/alumno/Alumno_ajax/get_alumnos';
-                data_table_object= {
-                      "ajax": {
-                        'url':url,
-                        'data':{  },
-                        "type": "POST",
-                        'dataSrc':"res",
-                      },
-                      "columns": [
-                          { "data": "",
-                            render: function ( data, type, row ) {
-                                return row.apellido+", "+row.nombre;
-                             }
-                          },
-                          { "data": "",'className':'text-center text_nowrap',
-                            render: function ( data, type, row ) {
-                                return moment(row.nacimiento).format("DD/MM/YYYY");
-                             }
-                          },
-                      ],
-                      "paging":   true,
-                      "ordering": [[2,'asc']],
-                      "bFilter":true,
-                      "rowCallback": function( row, data, index ) {
-                        $(row).addClass("hand");
-                        $(row).attr("id",data.dni);
-                      },
-                      "initComplete": function( settings ) {
-                         bindEvents("tbl_alumno");
-                     }
-                  }
-                  $("#tbl_alumno").DataTable(data_table_object);
-            }
-
-
-
-            function registrar_evento(){
-                $.ajax({
-                            type: "POST",
-                            url: _base_url + "/guarderia/maestro/Maestro_ajax/registrar_evento",
-                            data: {
-                                "alumnos": relate_object.alumnos,
-                                "evento": relate_object.evento,
+                          responsive: [
+                            {
+                              breakpoint: 768,
+                              settings: {
+                                arrows: true,
+                                centerMode: true,
+                                centerPadding: '40px',
+                                slidesToShow: 3
+                              }
                             },
-                            dataType: 'json',
-                            success: function(response) {
-                              alert(response.res);
-                              setMessage("success",_MSG_INFO);
+                            {
+                              breakpoint: 480,
+                              settings: {
+                                arrows: true,
+                                centerMode: true,
+                                centerPadding: '40px',
+                                slidesToShow: 1
+                              }
                             }
+                          ]
                         });
-            }
+                }
+            });
+}
+
+
+
+function initTableAlumnos(){
+    var url=_base_url+'/guarderia/alumno/Alumno_ajax/get_alumnos';
+    data_table_object= {
+          "ajax": {
+            'url':url,
+            'data':{  },
+            "type": "POST",
+            'dataSrc':"res",
+          },
+          "columns": [
+              { "data": "",
+                render: function ( data, type, row ) {
+                    return row.apellido+", "+row.nombre;
+                 }
+              },
+              { "data": "",'className':'text-center text_nowrap',
+                render: function ( data, type, row ) {
+                    return moment(row.nacimiento).format("DD/MM/YYYY");
+                 }
+              },
+          ],
+          "paging":   true,
+          "ordering": [[2,'asc']],
+          "bFilter":true,
+          "rowCallback": function( row, data, index ) {
+            $(row).addClass("hand");
+            $(row).attr("id",data.dni);
+          },
+          "initComplete": function( settings ) {
+             bindEvents("tbl_alumno");
+         }
+      }
+      $("#tbl_alumno").DataTable(data_table_object);
+}
+
+
+
+function registrar_evento(data){
+    $.ajax({
+                type: "POST",
+                url: _base_url + "/guarderia/maestro/Maestro_ajax/registrar_evento",
+                data: data,
+                dataType: 'json',
+                success: function(response) {
+                  alert(response.res);
+                  setMessage("success",_MSG_INFO);
+                }
+            });
+}
 
 
 
 
-            function get_selected(id_table){
-              var array=[];
-              $("#"+id_table+" tbody").find(".tr_selected").each(function(){
-                 var row=$(this);
-                 var id=$(row).attr("id")
-                 array.push(id);
-               });
-              return array;
-            }
+function get_selected(id_table){
+  var array=[];
+  $("#"+id_table+" tbody").find(".tr_selected").each(function(){
+     var row=$(this);
+     var id=$(row).attr("id")
+     array.push(id);
+   });
+  return array;
+}
 
 
-            function get_div_selected(id_div){
+function get_div_selected(id_div){
 
-            }
+}
