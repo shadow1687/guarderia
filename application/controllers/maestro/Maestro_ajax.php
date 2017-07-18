@@ -10,6 +10,7 @@ public function __construct()
   $this->load->model('Persona_model');
   $this->load->model('Evento_model');
   $this->load->model('Accion_model');
+  $this->load->model('Menu_semanal_model');
 }
 
   public function crear()
@@ -71,21 +72,6 @@ public function __construct()
   }
 
 
-//  public function get_acciones(){
-//    $data = $this -> Accion_model -> obtener_acciones();
-/*
-    $arreglo=array();
-    foreach ($data ->result_array() as $row)
-    {
-      $arreglo[] = array(
-        'id' => $row['id'];
-      );
-
-    }
-    header('Content-type: application/json');
-    */
-//    echo json_encode($data);
-//  }
 
   public function get_acciones_2(){
     $res = $this -> Accion_model -> obtener_acciones_2();
@@ -104,6 +90,52 @@ public function __construct()
     );
     $this->Evento_model->registrar_eventos($data);
     echo json_encode(array('valid' => 1,"msg" => '', "res" =>null ));
+  }
+
+
+  public function crear_menu_semanal()
+  {
+    if(!$this->session->userdata('username'))
+      redirect('login');
+
+      $data = array(
+      'fecha'       => $this->input->post('fecha'),
+      'desayuno'    => $this->input->post('desayuno'),
+      'almuerzo'    => $this->input->post('almuerzo'),
+      'merienda'    => $this->input->post('merienda'),
+      'cena'        => $this->input->post('cena')
+      );
+
+      if ($this->validar_menu_semanal($data))
+       {
+          $this->Menu_semanal_model->crear_menu_semanal($data);
+          redirect('welcome');
+        }
+      else {
+            $this->load->view('headerpanel');
+            $this->load->view('maestro/menu');
+            $this->load->view('maestro/crearmenusemanal');
+          }
+
+  }
+
+
+  public function validar_menu_semanal($data)
+  {
+    $this->form_validation->set_rules('fecha', 'Fecha de menú', 'required');
+    $this->form_validation->set_rules('desayuno', 'Desayuno', 'required|max_length[100]');
+    $this->form_validation->set_rules('almuerzo', 'Almuerzo', 'required|max_length[100]');
+    $this->form_validation->set_rules('merienda', 'Merienda', 'required|max_length[100]');
+    $this->form_validation->set_rules('cena', 'Cena', 'required|max_length[100]');
+
+
+    if ($this->form_validation->run() === FALSE)
+    {
+        return false;
+    }
+    else {
+      return true;
+    }
   }
 
 }

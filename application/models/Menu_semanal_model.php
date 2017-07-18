@@ -23,4 +23,12 @@ public function __construct()
 	}
 
 
+  function crear_menu_semanal($data){
+    $this->db->insert('menu', array('desayuno'=>$data['desayuno'], 'almuerzo'=>$data['almuerzo'], 'merienda'=>$data['merienda'],
+    'cena'=>$data['cena'], 'fecha'=>date('Y-m-d',strtotime($data['fecha']))));
+	}
+
+
+
+
 }
