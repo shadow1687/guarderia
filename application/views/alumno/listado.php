@@ -29,7 +29,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                      <table id="tbl_alumno" aria-describedby="datatable_info" role="grid" id="datatable" class="table table-striped table-bordered dataTable no-footer">
+                      <table id="tbl_alumno" aria-describedby="datatable_info" role="grid" class="table table-striped table-bordered dataTable no-footer">
                       <thead>
                         <tr role="row">
                           <th class="text-center" aria-label="Position: activate to sort column ascending" style="width: 416px;" colspan="1" rowspan="1" aria-controls="datatable" tabindex="0" class="sorting">DNI</th>

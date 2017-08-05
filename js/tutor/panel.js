@@ -18,7 +18,7 @@ function loadChilds(){
                     for (var i = 0; i < respuesta.length; i++) {
                         var imagen='<img src="http://127.0.0.1/guarderia/images/'+(i+1)+'.jpg" class="img-circle child_img">';
                         var nombre='<span class="text-140 text-bold">'+respuesta[i]['nombre']+'</span>';
-                        var tabla_evento="<center><table class='tbl_evt' id='tbl_"+respuesta[i].id+"'></table></center>";
+                        var tabla_evento="<center><table class='tbl_evt table' id='tbl_"+respuesta[i].id+"'></table></center>";
                         $('#tabs ul').append('<li><a href="#tabs-'+(i+1)+'" >'+imagen+"&nbsp;"+nombre+'</a></li>');
                         $('#tabs').append('<div id="tabs-'+(i+1)+'">'+tabla_evento+'</div>');
                     }

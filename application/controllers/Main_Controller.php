@@ -20,7 +20,8 @@ class Main_Controller extends CI_Controller {
     switch($_SESSION["tipo"]){
       case TUTOR :    			{
                               $this -> load -> view('/tutor/menu',$data);
-                              $this -> default_vars(array(base_url()."static/panel/vendors/datatables.net/js/jquery.dataTables.min.js",base_url()."/../js/tutor/panel.js"));
+                              $this -> default_vars(array(base_url()."static/panel/vendors/datatables.net/js/jquery.dataTables.min.js",base_url()."/../js/tutor/panel.js"),
+                              array(base_url()."static/panel/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css"));
       }break;
       case MAESTRO :     		{
                               $this -> load -> view('/maestro/menu');
