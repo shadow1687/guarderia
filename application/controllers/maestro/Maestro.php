@@ -106,7 +106,7 @@ class Maestro extends Main_controller {
     public function crear_menu_semanal(){
       if(!$this->session->userdata('username'))
         redirect('login');
-        
+
       //var_dump($data);exit;
       parent::header();
       $this->load->view('maestro/crearmenusemanal');

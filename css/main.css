@@ -33,17 +33,14 @@
   cursor:pointer;
 }
 
-<<<<<<< HEAD
 .div_selected{
   background-color: #cce8e4;
 }
 
-=======
->>>>>>> cd696035f8f6340082527760d09612b951a1c164
 /*NOTIFICACIONES*/
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600);
 
-.notification {
+div.notification {
   height: auto;
   padding: 8px;
   border-bottom: #0a0;

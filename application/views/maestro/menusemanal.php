@@ -79,21 +79,5 @@ else
         </div>
       </div>
 
-
-      <!-- Bootstrap -->
-      <script src="<?=base_url()?>static/panel/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-      <!-- FastClick -->
-      <script src="<?=base_url()?>static/panel/vendors/fastclick/lib/fastclick.js"></script>
-      <!-- NProgress -->
-      <script src="<?=base_url()?>static/panel/vendors/nprogress/nprogress.js"></script>
-      <!-- validator -->
-      <script src="<?=base_url()?>static/panel/vendors/validator/validator.js"></script>
-
-      <!-- Custom Theme Scripts -->
-      <script src="<?=base_url()?>static/panel/build/js/custom.min.js"></script>
-
-      <!-- iCheck -->
-      <script src="<?=base_url()?>static/panel/vendors/iCheck/icheck.min.js"></script>
-
     </body>
   </html>

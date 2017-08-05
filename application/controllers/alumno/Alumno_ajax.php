@@ -73,4 +73,15 @@ public function __construct()
     echo json_encode(array("valid" => 1,"msg" => "","res" =>$res["result"]));
   }
 
+  public function get_evento(){
+    $this->load->model('Evento_model');
+    extract($this -> input -> post(),EXTR_OVERWRITE);
+    $result=$this -> Evento_model -> get_evento(array('id_persona' => $id_persona));
+    if($result["success"]){
+      echo json_encode(array("valid" => 1,"msg" => "","res" =>$result["result"]));
+    }else {
+      echo json_encode(array('valid' => -1,'msg' => $result["msg"], 'res' => $result["result"]));
+    }
+  }
+
 }

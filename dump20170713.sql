@@ -209,32 +209,7 @@ DROP TABLE IF EXISTS `evento`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `evento` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `tipo` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `descripcion` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `evento`
---
-
-LOCK TABLES `evento` WRITE;
-/*!40000 ALTER TABLE `evento` DISABLE KEYS */;
-INSERT INTO `evento` VALUES (1,'comio','Comió normalmente'),(2,'comio','Comió normalmente'),(3,'comio','Comió normalmente'),(4,'comio','Comió normalmente'),(5,'comio','Comió normalmente'),(6,'comio','Comió normalmente');
-/*!40000 ALTER TABLE `evento` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `evento_persona`
---
-
-DROP TABLE IF EXISTS `evento_persona`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `evento_persona` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `tipo` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `evento` smallint(5) unsigned NOT NULL,
   `persona` int(10) unsigned DEFAULT NULL,
   `st` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -243,13 +218,13 @@ CREATE TABLE `evento_persona` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `evento_persona`
+-- Dumping data for table `evento`
 --
 
-LOCK TABLES `evento_persona` WRITE;
-/*!40000 ALTER TABLE `evento_persona` DISABLE KEYS */;
-INSERT INTO `evento_persona` VALUES (40,12,4,0,'2017-07-13 22:12:58'),(41,13,4,0,'2017-07-13 22:12:58'),(42,12,4,0,'2017-07-13 22:15:10'),(43,13,4,0,'2017-07-13 22:15:10'),(44,12,4,0,'2017-07-13 22:17:28'),(45,13,4,0,'2017-07-13 22:17:28'),(46,12,4,0,'2017-07-13 22:19:36'),(47,13,4,0,'2017-07-13 22:19:36');
-/*!40000 ALTER TABLE `evento_persona` ENABLE KEYS */;
+LOCK TABLES `evento` WRITE;
+/*!40000 ALTER TABLE `evento` DISABLE KEYS */;
+INSERT INTO `evento` VALUES (40,12,4,0,'2017-07-13 22:12:58'),(41,13,4,0,'2017-07-13 22:12:58'),(42,12,4,0,'2017-07-13 22:15:10'),(43,13,4,0,'2017-07-13 22:15:10'),(44,12,4,0,'2017-07-13 22:17:28'),(45,13,4,0,'2017-07-13 22:17:28'),(46,12,4,0,'2017-07-13 22:19:36'),(47,13,4,0,'2017-07-13 22:19:36');
+/*!40000 ALTER TABLE `evento` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -402,4 +377,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-13 19:22:48
+-- Dump completed on 2017-07-13 19:27:42
